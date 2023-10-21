@@ -1,0 +1,16 @@
+.select__label,
+.right-side__head {
+  font-size: 18px;
+  font-weight: 600;
+}
+label {
+  margin: 5px 5px;
+}
+.left-side__list li {
+  cursor: pointer;
+}
+.select-category {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

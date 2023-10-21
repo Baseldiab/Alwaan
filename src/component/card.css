@@ -1,0 +1,33 @@
+.img-container {
+}
+.card__img-link {
+  background-color: #fff;
+  filter: brightness(0.85);
+  -webkit-filter: brightness(0.85);
+  text-align: center;
+  padding: 16px;
+  /* margin: auto; */
+}
+.card__img-link img {
+  height: 250px;
+  width: auto;
+  max-width: 100%;
+}
+.card-body {
+  position: relative;
+}
+.card-title {
+  font-size: 18px;
+}
+.card__price {
+  position: absolute;
+  bottom: 5px;
+}
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+}
+.card-footer,
+.card__price {
+  font-size: 14px;
+}

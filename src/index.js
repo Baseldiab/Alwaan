@@ -9,6 +9,7 @@ import DashNav from "./dashboard/component/DashNav";
 import Dashboard from "./dashboard/pages/Dashboard";
 import AddNewProduct from "./dashboard/pages/AddProduct";
 import EditProduct from "./dashboard/pages/EditProduct";
+import HomePage from "./Home";
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { RecoilRoot } from "recoil";
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <Layout>
-        <Dashboard />
+        <HomePage />
       </Layout>
     ),
   },

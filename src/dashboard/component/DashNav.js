@@ -8,7 +8,7 @@ function DashNav() {
       data-bs-theme="dark"
     >
       <div className="container">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand" to="/dashboard">
           Dashboard
         </Link>
         <button
@@ -37,7 +37,7 @@ function DashNav() {
                     : "nav-link"
                 }
                 aria-current="page"
-                to="/"
+                to="/dashboard"
               >
                 Products
               </NavLink>
