@@ -6,6 +6,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
 import DashNav from "./dashboard/component/DashNav";
+import MainNav from "./component/MainNav";
 import Dashboard from "./dashboard/pages/Dashboard";
 import AddNewProduct from "./dashboard/pages/AddProduct";
 import EditProduct from "./dashboard/pages/EditProduct";
@@ -14,7 +15,12 @@ import HomePage from "./Home";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 const Layout = ({ children }) => {
-  return <main>{children}</main>;
+  return (
+    <main>
+      <MainNav />
+      {children}
+    </main>
+  );
 };
 
 const router = createBrowserRouter([

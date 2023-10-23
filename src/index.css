@@ -6,6 +6,32 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+:root {
+  --c-primary: #066da9;
+  --logo-secondary: #09dba0;
+  --c-secondary: #07a87a;
+
+  --c-white: #fff;
+
+  --c-title: rgb(35, 39, 47);
+  --c-text: rgb(64, 71, 86);
+  --bg-text: rgb(246, 247, 249);
+
+  --bg: rgb(255, 255, 255);
+
+  --box-shadow: 0 2px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] {
+  --c-primary: rgb(162, 210, 225);
+  --c-secondary: rgb(255, 92, 92);
+
+  --c-title: rgb(246, 247, 249);
+  --c-text: rgb(235, 236, 240);
+  --bg-text: rgb(52, 58, 70);
+
+  --bg: rgb(35, 39, 47);
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -13,4 +39,15 @@ code {
 }
 a {
   text-decoration: none !important;
+}
+
+.main-nav__item a,
+.dash-nav__item a {
+  width: fit-content;
+}
+.logo-name {
+  color: var(--c-white);
+}
+.logo-name__A {
+  color: var(--logo-secondary);
 }

@@ -1,0 +1,10 @@
+.main-nav {
+  /* background-color: #0d6efd; */
+  background-color: var(--c-primary);
+}
+.logo-name {
+  color: var(--c-white);
+}
+.logo-name__A {
+  color: var(--logo-secondary);
+}
