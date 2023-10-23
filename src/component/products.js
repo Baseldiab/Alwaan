@@ -56,8 +56,8 @@ function Products() {
 
   return (
     <>
-      <Row className="row">
-        <div className="left-side col-md-3 d-md-inline d-none">
+      <Row>
+        <Col md={3} className="left-side d-md-inline d-none">
           <Form className=" w-100" role="search">
             <FormControl
               className="form-control me-2"
@@ -90,9 +90,9 @@ function Products() {
               );
             })}
           </ul>
-        </div>
+        </Col>
 
-        <div className="right-side col-md-9 col-12">
+        <Col xs={12} md={9} className="right-side col-md-9 col-12">
           <div className="select-category ">
             <Form>
               <Form.Label
@@ -139,7 +139,7 @@ function Products() {
               </Col>
             ))}
           </Row>
-        </div>
+        </Col>
       </Row>
     </>
   );

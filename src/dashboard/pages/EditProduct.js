@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { Breadcrumb, Container } from "react-bootstrap";
+import { Breadcrumb, Button, Col, Container, Form, Row } from "react-bootstrap";
 
 function EditProduct() {
   let params = useParams();
@@ -44,7 +44,7 @@ function EditProduct() {
 
   return (
     <>
-      <div className="bg-body-tertiary py-3">
+      <section className="breadcrumb-section bg-body-tertiary py-3">
         <Container>
           <Breadcrumb>
             {/* <ol className="breadcrumb m-0"> */}
@@ -61,91 +61,87 @@ function EditProduct() {
             {/* </ol> */}
           </Breadcrumb>
         </Container>
-      </div>
+      </section>
 
       <section className="editProduct container my-3">
-        <form className="editProduct-form" onSubmit={formatSubmit}>
-          <div className="form__title mb-3 ">
-            <label className="form-label" htmlFor="floatingTitle">
-              Product Name
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="floatingTitle"
-              onChange={(e) => {
-                setTitle(e.target.value);
-              }}
-              defaultValue={singleProduct.title}
-              required
-            />
-          </div>
+        <Container>
+          <Form className="editProduct-form" onSubmit={formatSubmit}>
+            <Form.Group className="form__title mb-3" controlId="formBasicEmail">
+              <Form.Label htmlFor="floatingTitle">Product Name</Form.Label>
+              <Form.Control
+                id="floatingTitle"
+                type="text"
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
+                defaultValue={singleProduct.title}
+                required
+              />
+            </Form.Group>
 
-          <div className="form__price mb-3 ">
-            <label className="form-label" htmlFor="inputPrice">
-              Product Price
-            </label>
-            <input
-              type="number"
-              min="0"
-              step="any"
-              className="form-control"
-              id="inputPrice"
-              onChange={(e) => setPrice(e.target.value)}
-              defaultValue={singleProduct.price}
-              required
-            />
-          </div>
+            <Form.Group className="form__price mb-3" controlId="formBasicEmail">
+              <Form.Label htmlFor="inputPrice">Product Name</Form.Label>
+              <Form.Control
+                type="number"
+                min="0"
+                step="any"
+                id="inputPrice"
+                onChange={(e) => setPrice(e.target.value)}
+                defaultValue={singleProduct.price}
+                required
+              />
+            </Form.Group>
 
-          <div className="form__description mb-3 ">
-            <label className="form-label" htmlFor="floatingDescription">
-              Product Description
-            </label>
-            <textarea
-              className="form-control"
-              // placeholder="Description your product"
-              id="floatingDescription"
-              defaultValue={singleProduct.description}
-              onChange={(e) => setDescription(e.target.value)}
-            ></textarea>
-          </div>
+            <Form.Group
+              className="form__description mb-3"
+              controlId="formBasicEmail"
+            >
+              <Form.Label htmlFor="floatingDescription">
+                Product Name
+              </Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                id="floatingDescription"
+                defaultValue={singleProduct.description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </Form.Group>
 
-          <div className="form__category mb-3 ">
-            <label className="form-label" htmlFor="floatingCategory">
-              Product Category
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="floatingCategory"
-              onChange={(e) => setCategory(e.target.value)}
-              //   placeholder="Product Category"
-              defaultValue={singleProduct.category}
-              required
-            />
-          </div>
+            <Form.Group
+              className="form__category mb-3"
+              controlId="formBasicEmail"
+            >
+              <Form.Label htmlFor="floatingCategory">Product Name</Form.Label>
+              <Form.Control
+                type="text"
+                id="floatingCategory"
+                onChange={(e) => setCategory(e.target.value)}
+                defaultValue={singleProduct.category}
+                required
+              />
+            </Form.Group>
 
-          <div className="form__image mb-3">
-            <label className="form-label" htmlFor="floatingImage">
-              Product Image Url
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="floatingImage"
-              onChange={(e) => setImage(e.target.value)}
-              //   placeholder="Product Image Url"
-              defaultValue={singleProduct.image}
-              required
-            />
-          </div>
+            <Form.Group className="form__image mb-3" controlId="formBasicEmail">
+              <Form.Label htmlFor="floatingImage">Product Name</Form.Label>
+              <Form.Control
+                type="text"
+                id="floatingImage"
+                onChange={(e) => setImage(e.target.value)}
+                defaultValue={singleProduct.image}
+                required
+              />
+            </Form.Group>
 
-          <div className="form__submit-btn row mx-0">
-            <button className="btn btn-primary col-sm-3 col-12" type="submit">
-              Confirm
-            </button>
-          </div>
-        </form>
+            <Row className="form__submit-btn mx-0">
+              <Col xs={12} sm={4} className="ps-0">
+                <Button className="w-100" variant="primary" type="submit">
+                  Confirm
+                </Button>
+              </Col>
+            </Row>
+          </Form>
+        </Container>
       </section>
     </>
   );

@@ -1,7 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { Breadcrumb, Container } from "react-bootstrap";
+import {
+  Breadcrumb,
+  Button,
+  Col,
+  Container,
+  FloatingLabel,
+  Form,
+  Row,
+} from "react-bootstrap";
 
 function AddNewProduct() {
   let navigate = useNavigate();
@@ -9,7 +17,17 @@ function AddNewProduct() {
   const [price, setPrice] = useState([]);
   const [description, setDescription] = useState([]);
   const [category, setCategory] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [image, setImage] = useState([]);
+
+  const getCategory = () => {
+    fetch("http://localhost:3000/categories")
+      .then((res) => res.json())
+      .then((data) => setCategories(data));
+  };
+  useEffect(() => {
+    getCategory();
+  }, []);
 
   const formatSubmit = (e) => {
     e.preventDefault();
@@ -32,7 +50,7 @@ function AddNewProduct() {
 
   return (
     <>
-      <div className="bg-body-tertiary py-3">
+      <section className="breadcrumb-section bg-body-tertiary py-3">
         <Container>
           <Breadcrumb>
             <Breadcrumb.Item>
@@ -46,76 +64,108 @@ function AddNewProduct() {
             <Breadcrumb.Item active>Add New Product</Breadcrumb.Item>
           </Breadcrumb>
         </Container>
-      </div>
+      </section>
 
-      <section className="addProduct container my-3">
-        <form className="addProduct-form" onSubmit={formatSubmit}>
-          <div className="form__title mb-3 form-floating ">
-            <input
-              type="text"
-              className="form-control"
-              id="floatingTitle"
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="Product Name"
-              required
-            />
-            <label htmlFor="floatingTitle">Product Name</label>
-          </div>
+      <section className="addProduct my-3">
+        <Container>
+          <Form className="addProduct-form" onSubmit={formatSubmit}>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Product Name"
+              className="form__title mb-3"
+            >
+              <Form.Control
+                type="text"
+                placeholder="Product Name"
+                id="floatingTitle"
+                onChange={(e) => setTitle(e.target.value)}
+                required
+              />
+            </FloatingLabel>
 
-          <div className="form__price mb-3 form-floating ">
-            <input
-              type="number"
-              min="0"
-              step="any"
-              className="form-control"
-              id="inputPrice"
-              onChange={(e) => setPrice(e.target.value)}
-              placeholder="Price"
-              required
-            />
-            <label htmlFor="inputPrice">Price</label>
-          </div>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Price"
+              className="form__price mb-3"
+            >
+              <Form.Control
+                type="number"
+                placeholder="Price"
+                min="0"
+                step="any"
+                id="inputPrice"
+                onChange={(e) => setPrice(e.target.value)}
+                required
+              />
+            </FloatingLabel>
 
-          <div className="form__description mb-3 form-floating ">
-            <textarea
-              className="form-control"
-              placeholder="Description your product"
-              id="floatingDescription"
-              onChange={(e) => setDescription(e.target.value)}
-            ></textarea>
-            <label htmlFor="floatingDescription">Description</label>
-          </div>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Description"
+              className="form__description mb-3"
+            >
+              <Form.Control
+                as="textarea"
+                placeholder="Description"
+                style={{ height: "100px" }}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </FloatingLabel>
 
-          <div className="form__category mb-3 form-floating ">
-            <input
-              type="text"
-              className="form-control"
-              id="floatingCategory"
+            {/* <FloatingLabel
+              controlId="floatingInput"
+              label="Product Category"
+              className="form__category mb-3"
+            >
+              <Form.Control
+                type="text"
+                id="floatingCategory"
+                onChange={(e) => setCategory(e.target.value)}
+                placeholder="Product Category"
+                required
+              />
+            </FloatingLabel> */}
+
+            <Form.Select
+              aria-label="Default select example"
+              className="form__category mb-3"
               onChange={(e) => setCategory(e.target.value)}
-              placeholder="Product Category"
-              required
-            />
-            <label htmlFor="floatingCategory">Product Category</label>
-          </div>
+            >
+              <option>Choose your category</option>
+              {categories.map((category) => (
+                <option
+                  className="text-capitalize"
+                  key={category}
+                  value={category}
+                >
+                  {category}
+                </option>
+              ))}
+            </Form.Select>
 
-          <div className="form__image mb-3 form-floating ">
-            <input
-              type="text"
-              className="form-control"
-              id="floatingImage"
-              onChange={(e) => setImage(e.target.value)}
-              placeholder="Product Image Url"
-              required
-            />
-            <label htmlFor="floatingImage">Product Image Url</label>
-          </div>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Product Image Url"
+              className="form__image mb-3"
+            >
+              <Form.Control
+                type="text"
+                id="floatingImage"
+                onChange={(e) => setImage(e.target.value)}
+                placeholder="Product Image Url"
+                required
+              />
+            </FloatingLabel>
 
-          <div className="form__submit-btn row mx-0">
-            <button className="btn btn-primary col-sm-3 col-12" type="submit">
-              Confirm
-            </button>
-          </div>
-        </form>
+            <Row className="form__submit-btn mx-0">
+              <Col xs={12} sm={4} className="ps-0">
+                <Button className="w-100" variant="primary" type="submit">
+                  Confirm
+                </Button>
+              </Col>
+            </Row>
+          </Form>
+        </Container>
       </section>
     </>
   );

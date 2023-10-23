@@ -1,11 +1,10 @@
-// import axios from "axios";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
 import "./Dashboard.css";
 import { Link } from "react-router-dom";
 import ProductState, { fetchProducts } from "../../atoms/ProductState";
 import { useRecoilState } from "recoil";
-import { Breadcrumb, Container, Table } from "react-bootstrap";
+import { Breadcrumb, Button, Container, Table } from "react-bootstrap";
 
 function Dashboard() {
   const [products, setProducts] = useRecoilState(ProductState);
@@ -84,23 +83,23 @@ function Dashboard() {
                     </td>
                     <td>
                       <div className="table-btns">
-                        <button type="button" className="btn btn-warning mx-1">
+                        <Button variant="warning" className="mx-1">
                           <Link
                             className="text-dark"
                             to={`/dashboard/edit/${product.id}`}
                           >
                             Edit
                           </Link>
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-danger mx-1"
+                        </Button>
+                        <Button
+                          variant="danger"
+                          className="mx-1"
                           onClick={() => {
                             deleteItem(product);
                           }}
                         >
                           Delete
-                        </button>
+                        </Button>
                       </div>
                     </td>
                   </tr>
