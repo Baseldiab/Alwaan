@@ -1,10 +1,10 @@
-.nav-list {
+.nav__list {
   justify-content: end;
 }
-.nav-list li {
+.nav__list li {
   /* background-color: red; */
   margin: 0 10px;
 }
-.main-nav__item a {
+.dash-nav__item a {
   width: fit-content;
 }

@@ -1,3 +1,6 @@
+.breadcrumb {
+  margin: 0;
+}
 .table-btns {
   display: flex;
   justify-content: center;

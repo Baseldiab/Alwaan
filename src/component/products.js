@@ -1,9 +1,12 @@
 // import logo from "./logo.svg";
 import { useEffect, useState } from "react";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import ProductState, { fetchProducts } from "../atoms/ProductState";
 import { useRecoilState } from "recoil";
-import Card from "./Card";
+import CardProduct from "./Card";
 import "./products.css";
+import { Form, FormControl } from "react-bootstrap";
 
 function Products() {
   const [products, setProducts] = useRecoilState(ProductState);
@@ -53,10 +56,10 @@ function Products() {
 
   return (
     <>
-      <div className="row">
+      <Row className="row">
         <div className="left-side col-md-3 d-md-inline d-none">
-          <form className=" w-100" role="search">
-            <input
+          <Form className=" w-100" role="search">
+            <FormControl
               className="form-control me-2"
               type="search"
               placeholder="Search"
@@ -64,7 +67,7 @@ function Products() {
               value={searchQuery}
               onChange={handleInputChange}
             />
-          </form>
+          </Form>
           <h3 className="left-side__head my-1">categories</h3>
 
           <ul className="left-side__list list-unstyled ms-2">
@@ -91,13 +94,13 @@ function Products() {
 
         <div className="right-side col-md-9 col-12">
           <div className="select-category ">
-            <div>
-              <label
+            <Form>
+              <Form.Label
                 className="select__label text-capitalize   ms-0 me-2"
                 htmlFor="categoryName"
               >
                 choose your category
-              </label>
+              </Form.Label>
               <select
                 className="p-1"
                 id="categoryName"
@@ -117,27 +120,27 @@ function Products() {
                   </option>
                 ))}
               </select>
-            </div>
+            </Form>
             <h5 className="right-side__head my-1">
               {products.length} product is found
             </h5>
           </div>
 
-          <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 my-4">
+          <Row xs={1} sm={2} lg={3} className="g-4 my-4">
             {products.map((product) => (
-              <div key={product.id} className="col">
-                <Card
+              <Col key={product.id}>
+                <CardProduct
                   id={product.id}
                   image={product.image}
                   title={product.title}
                   category={product.category}
                   price={product.price}
                 />
-              </div>
+              </Col>
             ))}
-          </div>
+          </Row>
         </div>
-      </div>
+      </Row>
     </>
   );
 }

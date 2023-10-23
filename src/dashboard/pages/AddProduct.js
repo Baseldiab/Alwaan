@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { Breadcrumb, Container } from "react-bootstrap";
 
 function AddNewProduct() {
   let navigate = useNavigate();
@@ -22,7 +23,7 @@ function AddNewProduct() {
       })
       .then((data) => {
         console.log(data);
-        navigate("/");
+        navigate("/dashboard");
       })
       .catch((error) => {
         console.error("Error retrieving product data:", error);
@@ -31,20 +32,21 @@ function AddNewProduct() {
 
   return (
     <>
-      <nav aria-label="breadcrumb" className="bg-body-tertiary py-4">
-        <div className="container">
-          <ol className="breadcrumb m-0">
-            <li className="breadcrumb-item">
-              <Link className="text-decoration-underline text-black" to={"/"}>
+      <div className="bg-body-tertiary py-3">
+        <Container>
+          <Breadcrumb>
+            <Breadcrumb.Item>
+              <Link
+                className="text-decoration-underline text-black"
+                to={"/dashboard"}
+              >
                 Dashboard
               </Link>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              Add New Product
-            </li>
-          </ol>
-        </div>
-      </nav>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item active>Add New Product</Breadcrumb.Item>
+          </Breadcrumb>
+        </Container>
+      </div>
 
       <section className="addProduct container my-3">
         <form className="addProduct-form" onSubmit={formatSubmit}>

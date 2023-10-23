@@ -5,6 +5,7 @@ import "./Dashboard.css";
 import { Link } from "react-router-dom";
 import ProductState, { fetchProducts } from "../../atoms/ProductState";
 import { useRecoilState } from "recoil";
+import { Breadcrumb, Container, Table } from "react-bootstrap";
 
 function Dashboard() {
   const [products, setProducts] = useRecoilState(ProductState);
@@ -42,78 +43,72 @@ function Dashboard() {
 
   return (
     <>
-      <nav aria-label="breadcrumb" className="bg-body-tertiary py-4">
-        <div className="container">
-          <ol className="breadcrumb m-0">
-            <li className="breadcrumb-item">
-              <Link className="text-decoration-underline text-black" to={"/"}>
+      <div className="bg-body-tertiary py-3">
+        <Container>
+          <Breadcrumb>
+            <Breadcrumb.Item>
+              <Link
+                className="text-decoration-underline text-black"
+                to={"/dashboard"}
+              >
                 Dashboard
               </Link>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              All Products
-            </li>
-          </ol>
-        </div>
-      </nav>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item active>All Products</Breadcrumb.Item>
+          </Breadcrumb>
+        </Container>
+      </div>
       {/* ============================ */}
       <section className="products ">
-        <table className="products__table table table-striped container my-2">
-          <thead>
-            <tr>
-              <th className="text-capitalize" scope="col">
-                id
-              </th>
-              <th className="text-capitalize" scope="col">
-                product name
-              </th>
-              <th className="text-capitalize" scope="col">
-                product Category
-              </th>
-              <th className="text-capitalize" scope="col">
-                price
-              </th>
-              <th className="text-capitalize text-center" scope="col">
-                actions
-              </th>
-            </tr>
-          </thead>
-          <tbody className="table-body align-middle">
-            {products.map((product) => {
-              return (
-                <tr key={product.id}>
-                  <th scope="row">{product.id}</th>
-                  <td className="fw-bold">{product.title}</td>
-                  <td className="fw-bold">{product.category}</td>
-                  <td className="text-danger fw-bold">
-                    {Number(product.price).toFixed(2)}
-                  </td>
-                  <td>
-                    <div className="table-btns">
-                      <button type="button" className="btn btn-warning mx-1">
-                        <Link
-                          className="text-dark"
-                          to={`/dashboard/edit/${product.id}`}
+        <Container>
+          <Table striped className="products__table my-2">
+            <thead>
+              <tr>
+                <th className="text-capitalize">id</th>
+                <th className="text-capitalize">product name</th>
+                <th className="text-capitalize">price</th>
+                <th className="text-capitalize text-center">actions</th>
+              </tr>
+            </thead>
+            <tbody className="align-middle">
+              {products.map((product) => {
+                return (
+                  <tr key={product.id}>
+                    <th scope="row">{product.id}</th>
+                    <td className="fw-bold">
+                      <p>{product.title}</p>
+                      <p className="text-secondary mb-0">{product.category}</p>
+                    </td>
+                    <td className="text-danger fw-bold">
+                      {Number(product.price).toFixed(2)}
+                    </td>
+                    <td>
+                      <div className="table-btns">
+                        <button type="button" className="btn btn-warning mx-1">
+                          <Link
+                            className="text-dark"
+                            to={`/dashboard/edit/${product.id}`}
+                          >
+                            Edit
+                          </Link>
+                        </button>
+                        <button
+                          type="button"
+                          className="btn btn-danger mx-1"
+                          onClick={() => {
+                            deleteItem(product);
+                          }}
                         >
-                          Edit
-                        </Link>
-                      </button>
-                      <button
-                        type="button"
-                        className="btn btn-danger mx-1"
-                        onClick={() => {
-                          deleteItem(product);
-                        }}
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                          Delete
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </Container>
       </section>
     </>
   );

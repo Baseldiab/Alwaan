@@ -1,29 +1,30 @@
 import { Link } from "react-router-dom";
 import "./card.css";
+import Card from "react-bootstrap/Card";
 
-function Card(props) {
+function CardProduct(props) {
   return (
-    <div className="card h-100">
+    <Card className="h-100">
       <Link className="card__img-link" to={`/product/${props.id}`}>
-        <img src={props.image} className="card-img-top" alt={props.title} />
+        <Card.Img variant="top" src={props.image} alt={props.title} />
       </Link>
-      <div className="card-body ">
-        <h5 className="card-title">
+      <Card.Body>
+        <Card.Title>
           <Link className="text-dark" to={`/product/${props.id}`}>
             {props.title}
           </Link>
-        </h5>
-      </div>
-      <div className="card-footer border-0 bg-transparent">
-        <p className=" m-0 fw-medium text-secondary text-capitalize ">
+        </Card.Title>
+      </Card.Body>
+      <Card.Footer className="border-0 bg-transparent">
+        <Card.Text className=" m-0 fw-medium text-secondary text-capitalize ">
           {props.category}
-        </p>
-        <p className=" m-0 text-danger fw-bold">
+        </Card.Text>
+        <Card.Text className=" m-0 text-danger fw-bold">
           ${Number(props.price).toFixed(2)}
-        </p>
-      </div>
-    </div>
+        </Card.Text>
+      </Card.Footer>
+    </Card>
   );
 }
 
-export default Card;
+export default CardProduct;

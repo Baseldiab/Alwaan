@@ -13,14 +13,8 @@ import HomePage from "./Home";
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { RecoilRoot } from "recoil";
-import Test from "./Test";
 const Layout = ({ children }) => {
-  return (
-    <main>
-      <DashNav />
-      {children}
-    </main>
-  );
+  return <main>{children}</main>;
 };
 
 const router = createBrowserRouter([
@@ -32,18 +26,12 @@ const router = createBrowserRouter([
       </Layout>
     ),
   },
-  {
-    path: "/test",
-    element: (
-      <Layout>
-        <Test />
-      </Layout>
-    ),
-  },
+
   {
     path: "/dashboard",
     element: (
       <Layout>
+        <DashNav />
         <div id="detail">
           <Outlet />
         </div>
@@ -56,12 +44,12 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/dashboard/addProduct",
+        path: "addProduct",
         element: <AddNewProduct />,
       },
 
       {
-        path: "/dashboard/edit/:productId",
+        path: "edit/:productId",
         element: <EditProduct />,
       },
     ],

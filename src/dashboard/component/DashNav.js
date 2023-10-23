@@ -1,65 +1,47 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./dashNav.css";
+import { Container, Nav, Navbar } from "react-bootstrap";
 
 function DashNav() {
+  const location = useLocation();
+
+  // Function to determine if a link should be active
+  const isLinkActive = (linkPath) => {
+    return location.pathname === linkPath;
+  };
   return (
-    <nav
-      className="main-nav navbar nav-underline navbar-expand-lg bg-dark border-bottom border-body"
-      data-bs-theme="dark"
-    >
-      <div className="container">
-        <Link className="navbar-brand" to="/dashboard">
+    <Navbar className="dash-nav" expand="lg" bg="dark" data-bs-theme="dark">
+      <Container>
+        <Link className="navbar-brand" to={"/dashboard"}>
           Dashboard
         </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div
-          className="collapse navbar-collapse nav-list "
-          id="navbarSupportedContent"
-        >
-          <ul className="navbar-nav  mb-2 mb-lg-0">
-            <li className="nav-item main-nav__item">
-              <NavLink
-                className={({ isActive, isPending }) =>
-                  isActive
-                    ? "active nav-link"
-                    : isPending
-                    ? "pending"
-                    : "nav-link"
-                }
-                aria-current="page"
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav" className="nav__list">
+          <Nav variant="underline">
+            <Nav.Item className="dash-nav__item">
+              <Link
+                className={`nav-link ${
+                  isLinkActive("/dashboard") ? "active" : ""
+                }`}
                 to="/dashboard"
               >
                 Products
-              </NavLink>
-            </li>
-            <li className="nav-item main-nav__item">
-              <NavLink
-                className={({ isActive, isPending }) =>
-                  isActive
-                    ? "active nav-link"
-                    : isPending
-                    ? "pending"
-                    : "nav-link"
-                }
+              </Link>
+            </Nav.Item>
+            <Nav.Item className="dash-nav__item">
+              <Link
+                className={`nav-link pe-0 ${
+                  isLinkActive("/dashboard/addProduct") ? "active" : ""
+                }`}
                 to="/dashboard/addProduct"
               >
                 Add New Product
-              </NavLink>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+              </Link>
+            </Nav.Item>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 export default DashNav;

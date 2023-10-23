@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { Breadcrumb, Container } from "react-bootstrap";
 
 function EditProduct() {
   let params = useParams();
@@ -34,7 +35,7 @@ function EditProduct() {
       })
       .then((data) => {
         console.log(data);
-        navigate("/");
+        navigate("/dashboard");
       })
       .catch((error) => {
         console.error("Error retrieving product data:", error);
@@ -43,23 +44,24 @@ function EditProduct() {
 
   return (
     <>
-      <nav aria-label="breadcrumb" className="bg-body-tertiary py-4">
-        <div className="container">
-          <ol className="breadcrumb m-0">
-            <li className="breadcrumb-item">
-              <Link className="text-decoration-underline text-black" to={"/"}>
+      <div className="bg-body-tertiary py-3">
+        <Container>
+          <Breadcrumb>
+            {/* <ol className="breadcrumb m-0"> */}
+            <Breadcrumb.Item>
+              <Link
+                className="text-decoration-underline text-black"
+                to={"/dashboard"}
+              >
                 Dashboard
               </Link>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              Edit product
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              {singleProduct.title}
-            </li>
-          </ol>
-        </div>
-      </nav>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item active>Edit product</Breadcrumb.Item>
+            <Breadcrumb.Item active>{singleProduct.title}</Breadcrumb.Item>
+            {/* </ol> */}
+          </Breadcrumb>
+        </Container>
+      </div>
 
       <section className="editProduct container my-3">
         <form className="editProduct-form" onSubmit={formatSubmit}>
