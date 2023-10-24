@@ -6,6 +6,7 @@ import { Breadcrumb, Button, Col, Container, Form, Row } from "react-bootstrap";
 function EditProduct() {
   let params = useParams();
   let navigate = useNavigate();
+
   const [singleProduct, setSingleProduct] = useState({});
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
@@ -13,15 +14,11 @@ function EditProduct() {
   const [category, setCategory] = useState("");
   const [image, setImage] = useState("");
 
-  const getProduct = () => {
+  useEffect(() => {
     fetch(`http://localhost:3000/products/${params.productId}`)
       .then((res) => res.json())
       .then((data) => setSingleProduct(data));
-  };
-
-  useEffect(() => {
-    getProduct();
-  });
+  }, [params.productId]);
 
   const formatSubmit = (e) => {
     e.preventDefault();
@@ -44,11 +41,10 @@ function EditProduct() {
 
   return (
     <>
-      <section className="breadcrumb-section bg-body-tertiary py-3">
+      <section className="breadcrumb-section py-3">
         <Container>
           <Breadcrumb>
-            {/* <ol className="breadcrumb m-0"> */}
-            <Breadcrumb.Item>
+            <Breadcrumb.Item active>
               <Link
                 className="text-decoration-underline text-black"
                 to={"/dashboard"}
@@ -58,7 +54,6 @@ function EditProduct() {
             </Breadcrumb.Item>
             <Breadcrumb.Item active>Edit product</Breadcrumb.Item>
             <Breadcrumb.Item active>{singleProduct.title}</Breadcrumb.Item>
-            {/* </ol> */}
           </Breadcrumb>
         </Container>
       </section>
@@ -67,9 +62,8 @@ function EditProduct() {
         <Container>
           <Form className="editProduct-form" onSubmit={formatSubmit}>
             <Form.Group className="form__title mb-3" controlId="formBasicEmail">
-              <Form.Label htmlFor="floatingTitle">Product Name</Form.Label>
+              <Form.Label>Product Name</Form.Label>
               <Form.Control
-                id="floatingTitle"
                 type="text"
                 onChange={(e) => {
                   setTitle(e.target.value);
@@ -80,12 +74,11 @@ function EditProduct() {
             </Form.Group>
 
             <Form.Group className="form__price mb-3" controlId="formBasicEmail">
-              <Form.Label htmlFor="inputPrice">Product Name</Form.Label>
+              <Form.Label>Product Price in Dollar</Form.Label>
               <Form.Control
                 type="number"
                 min="0"
                 step="any"
-                id="inputPrice"
                 onChange={(e) => setPrice(e.target.value)}
                 defaultValue={singleProduct.price}
                 required
@@ -96,13 +89,10 @@ function EditProduct() {
               className="form__description mb-3"
               controlId="formBasicEmail"
             >
-              <Form.Label htmlFor="floatingDescription">
-                Product Name
-              </Form.Label>
+              <Form.Label>Product Description</Form.Label>
               <Form.Control
                 as="textarea"
                 rows={3}
-                id="floatingDescription"
                 defaultValue={singleProduct.description}
                 onChange={(e) => setDescription(e.target.value)}
               />
@@ -112,10 +102,9 @@ function EditProduct() {
               className="form__category mb-3"
               controlId="formBasicEmail"
             >
-              <Form.Label htmlFor="floatingCategory">Product Name</Form.Label>
+              <Form.Label>Product Category</Form.Label>
               <Form.Control
                 type="text"
-                id="floatingCategory"
                 onChange={(e) => setCategory(e.target.value)}
                 defaultValue={singleProduct.category}
                 required
@@ -123,10 +112,9 @@ function EditProduct() {
             </Form.Group>
 
             <Form.Group className="form__image mb-3" controlId="formBasicEmail">
-              <Form.Label htmlFor="floatingImage">Product Name</Form.Label>
+              <Form.Label>Product Image URL</Form.Label>
               <Form.Control
                 type="text"
-                id="floatingImage"
                 onChange={(e) => setImage(e.target.value)}
                 defaultValue={singleProduct.image}
                 required

@@ -43,10 +43,10 @@ function Dashboard() {
 
   return (
     <>
-      <div className="bg-body-tertiary py-3">
+      <section className="breadcrumb-section py-3">
         <Container>
           <Breadcrumb>
-            <Breadcrumb.Item>
+            <Breadcrumb.Item active>
               <Link
                 className="text-decoration-underline text-black"
                 to={"/dashboard"}
@@ -57,8 +57,8 @@ function Dashboard() {
             <Breadcrumb.Item active>All Products</Breadcrumb.Item>
           </Breadcrumb>
         </Container>
-      </div>
-      {/* ============================ */}
+      </section>
+
       <section className="products ">
         <Container>
           <Table striped className="products__table my-2">
@@ -80,7 +80,7 @@ function Dashboard() {
                       <p className="text-secondary mb-0">{product.category}</p>
                     </td>
                     <td className="text-danger fw-bold">
-                      {Number(product.price).toFixed(2)}
+                      ${Number(product.price).toFixed(2)}
                     </td>
                     <td>
                       <div className="table-btns">

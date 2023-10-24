@@ -1,0 +1,16 @@
+.singleProduct__name,
+.singleProduct__price,
+.singleProduct__description-head {
+  font-family: Lora, "MS Sans Serif", Geneva, sans-serif;
+}
+.singleProduct__price {
+  color: var(--c-primary);
+  font-size: 25px;
+}
+.singleProduct__availability {
+  color: var(--text-secondary);
+  font-size: 18px;
+}
+.singleProduct__description-head {
+  /* font-family:; */
+}

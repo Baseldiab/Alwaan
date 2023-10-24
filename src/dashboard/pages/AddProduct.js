@@ -50,10 +50,10 @@ function AddNewProduct() {
 
   return (
     <>
-      <section className="breadcrumb-section bg-body-tertiary py-3">
+      <section className="breadcrumb-section py-3">
         <Container>
           <Breadcrumb>
-            <Breadcrumb.Item>
+            <Breadcrumb.Item active>
               <Link
                 className="text-decoration-underline text-black"
                 to={"/dashboard"}
@@ -61,7 +61,9 @@ function AddNewProduct() {
                 Dashboard
               </Link>
             </Breadcrumb.Item>
-            <Breadcrumb.Item active>Add New Product</Breadcrumb.Item>
+            <Breadcrumb.Item active>
+              <span>Add New Product</span>
+            </Breadcrumb.Item>
           </Breadcrumb>
         </Container>
       </section>
@@ -70,37 +72,35 @@ function AddNewProduct() {
         <Container>
           <Form className="addProduct-form" onSubmit={formatSubmit}>
             <FloatingLabel
-              controlId="floatingInput"
+              controlId="floatingTitle"
               label="Product Name"
               className="form__title mb-3"
             >
               <Form.Control
                 type="text"
                 placeholder="Product Name"
-                id="floatingTitle"
                 onChange={(e) => setTitle(e.target.value)}
                 required
               />
             </FloatingLabel>
 
             <FloatingLabel
-              controlId="floatingInput"
+              controlId="floatingPrice"
               label="Price"
               className="form__price mb-3"
             >
               <Form.Control
                 type="number"
-                placeholder="Price"
+                placeholder="Price in Dollar"
                 min="0"
                 step="any"
-                id="inputPrice"
                 onChange={(e) => setPrice(e.target.value)}
                 required
               />
             </FloatingLabel>
 
             <FloatingLabel
-              controlId="floatingInput"
+              controlId="floatingDescription"
               label="Description"
               className="form__description mb-3"
             >
@@ -111,20 +111,6 @@ function AddNewProduct() {
                 onChange={(e) => setDescription(e.target.value)}
               />
             </FloatingLabel>
-
-            {/* <FloatingLabel
-              controlId="floatingInput"
-              label="Product Category"
-              className="form__category mb-3"
-            >
-              <Form.Control
-                type="text"
-                id="floatingCategory"
-                onChange={(e) => setCategory(e.target.value)}
-                placeholder="Product Category"
-                required
-              />
-            </FloatingLabel> */}
 
             <Form.Select
               aria-label="Default select example"
@@ -144,13 +130,12 @@ function AddNewProduct() {
             </Form.Select>
 
             <FloatingLabel
-              controlId="floatingInput"
+              controlId="floatingImage"
               label="Product Image Url"
               className="form__image mb-3"
             >
               <Form.Control
                 type="text"
-                id="floatingImage"
                 onChange={(e) => setImage(e.target.value)}
                 placeholder="Product Image Url"
                 required
