@@ -29,6 +29,18 @@ function MainNav() {
                 Home
               </Link>
             </Nav.Item>
+
+            <Nav.Item className="main-nav__item">
+              <Link
+                className={`nav-link pe-0 ${
+                  isLinkActive("/products") ? "active" : ""
+                }`}
+                to="/products"
+              >
+                Products
+              </Link>
+            </Nav.Item>
+
             <Nav.Item className="main-nav__item">
               <Link
                 className={`nav-link pe-0 ${
@@ -36,9 +48,10 @@ function MainNav() {
                 }`}
                 to="/dashboard"
               >
-                Products
+                Dashboard
               </Link>
             </Nav.Item>
+
             <Nav.Item className="main-nav__item">
               <Link
                 className={`nav-link pe-0 ${

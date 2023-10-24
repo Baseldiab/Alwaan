@@ -2,18 +2,28 @@
 import { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import ProductState, { fetchProducts } from "../atoms/ProductState";
-import { useRecoilState } from "recoil";
 import CardProduct from "./Card";
 import "./products.css";
 import { Form, FormControl } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchProducts,
+  filterProducts,
+  searchProducts,
+} from "../rtl/slices/product-slice";
 
 function Products() {
-  const [products, setProducts] = useRecoilState(ProductState);
-  const [allProduct, setAllProduct] = useState([]);
+  const products = useSelector((state) => state.products.products) || [];
+  const dispatch = useDispatch();
+
   const [categories, setCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+    getCategory();
+  }, [dispatch]);
 
   const getCategory = () => {
     fetch("http://localhost:3000/categories")
@@ -23,42 +33,28 @@ function Products() {
 
   const filterProduct = (value) => {
     if (value === "all") {
-      fetchProducts(setProducts);
+      dispatch(fetchProducts());
     } else {
-      const filtered = allProduct.filter(
-        (product) => product.category === value
-      );
-      setProducts(filtered);
+      dispatch(filterProducts(value));
     }
     setSelectedCategory(value);
-  };
-
-  const searchedProducts = (query) => {
-    const searched = allProduct.filter(
-      (product) =>
-        product.title &&
-        product.title.toLowerCase().includes(query.toLowerCase())
-    );
-    setProducts(searched);
   };
 
   const handleInputChange = (e) => {
     e.preventDefault();
     setSearchQuery(e.target.value);
-    searchedProducts(e.target.value);
+    dispatch(searchProducts(e.target.value));
   };
-
-  useEffect(() => {
-    fetchProducts(setProducts);
-    fetchProducts(setAllProduct);
-    getCategory();
-  }, [setProducts]);
 
   return (
     <>
       <Row>
         <Col md={3} className="left-side d-md-inline d-none">
-          <Form className=" w-100" role="search">
+          <Form
+            className=" w-100"
+            role="search"
+            onSubmit={(e) => e.preventDefault()}
+          >
             <FormControl
               className="form-control me-2"
               type="search"

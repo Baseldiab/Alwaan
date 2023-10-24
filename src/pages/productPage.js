@@ -1,6 +1,7 @@
 import { Container } from "react-bootstrap";
-import Products from "./component/products";
-function HomePage() {
+import Products from "../component/products";
+
+function ProductsPage() {
   return (
     <main className="App my-5 ">
       <section className="cards my-4">
@@ -11,4 +12,4 @@ function HomePage() {
     </main>
   );
 }
-export default HomePage;
+export default ProductsPage;

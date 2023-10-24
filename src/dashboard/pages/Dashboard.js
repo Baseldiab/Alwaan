@@ -2,23 +2,24 @@ import Swal from "sweetalert2";
 import { useEffect } from "react";
 import "./Dashboard.css";
 import { Link } from "react-router-dom";
-import ProductState, { fetchProducts } from "../../atoms/ProductState";
-import { useRecoilState } from "recoil";
 import { Breadcrumb, Button, Container, Table } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../../rtl/slices/product-slice";
 
 function Dashboard() {
-  const [products, setProducts] = useRecoilState(ProductState);
+  const products = useSelector((state) => state.products.products) || [];
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchProducts(setProducts);
-  }, [setProducts]);
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   const deleteProduct = (productId) => {
     fetch(`http://localhost:3000/products/${productId}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then((json) => fetchProducts(setProducts));
+      .then((json) => dispatch(fetchProducts()));
   };
 
   const deleteItem = (product) => {

@@ -13,7 +13,10 @@ import EditProduct from "./dashboard/pages/EditProduct";
 import HomePage from "./Home";
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import { RecoilRoot } from "recoil";
+import { Provider } from "react-redux";
+import { store } from "./rtl/store";
+import ProductsPage from "./pages/productPage";
+import SingleProduct from "./pages/SingleProduct";
 const Layout = ({ children }) => {
   return (
     <main>
@@ -32,6 +35,32 @@ const router = createBrowserRouter([
       </Layout>
     ),
   },
+  // {
+  //   path: "/products/:productId",
+  //   element: <SingleProduct />,
+  // },
+
+  {
+    path: "/products",
+    element: (
+      <Layout>
+        <div id="detail">
+          <Outlet />
+        </div>
+      </Layout>
+    ),
+    children: [
+      {
+        path: "",
+        element: <ProductsPage />,
+      },
+
+      {
+        path: ":productId",
+        element: <SingleProduct />,
+      },
+    ],
+  },
 
   {
     path: "/dashboard",
@@ -45,7 +74,7 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "/dashboard",
+        path: "",
         element: <Dashboard />,
       },
 
@@ -65,13 +94,10 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RecoilRoot>
+    <Provider store={store}>
       <RouterProvider router={router} />
-    </RecoilRoot>
+    </Provider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

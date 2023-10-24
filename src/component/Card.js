@@ -5,12 +5,12 @@ import Card from "react-bootstrap/Card";
 function CardProduct(props) {
   return (
     <Card className="h-100">
-      <Link className="card__img-link" to={`/product/${props.id}`}>
+      <Link className="card__img-link" to={`/products/productId=${props.id}`}>
         <Card.Img variant="top" src={props.image} alt={props.title} />
       </Link>
       <Card.Body>
         <Card.Title>
-          <Link className="text-dark" to={`/product/${props.id}`}>
+          <Link className="text-dark" to={`products/productId=${props.id}`}>
             {props.title}
           </Link>
         </Card.Title>
