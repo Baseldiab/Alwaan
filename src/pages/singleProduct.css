@@ -7,10 +7,47 @@
   color: var(--c-primary);
   font-size: 25px;
 }
-.singleProduct__availability {
-  color: var(--text-secondary);
-  font-size: 18px;
+
+.singleProduct__trustSeal img {
+  max-width: 100%;
 }
-.singleProduct__description-head {
-  /* font-family:; */
+
+/* ZOOM IMAGE======================== */
+.custom-zoom-container {
+  position: relative;
 }
+
+.custom-zoom-container .zoom-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.custom-zoom-container:hover .zoom-image {
+  opacity: 1;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+}
+.singleProduct__trustSeal {
+  height: auto;
+  max-width: 100%;
+}
+.information__button {
+  font-size: var(--head-secondary-font);
+}
+.tab-content {
+  font-size: var(--text-secondary-font);
+}
+
+/* --text-secondary */

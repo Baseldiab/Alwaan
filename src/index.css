@@ -15,7 +15,10 @@ body {
   --logo-secondary: #09dba0;
   --c-secondary: #07a87a;
 
+  --head-secondary-font: 22px;
+
   --text-secondary: #6c757d;
+  --text-secondary-font: 18px;
 
   --bg-breadcrumb: #f8f9fa;
 
@@ -82,7 +85,8 @@ a {
 @media (max-width: 767px) {
   form,
   .right-side__head {
-    margin: auto;
+    /* margin: auto; */
+    text-align: start;
   }
 }
 /* textarea {
@@ -108,10 +112,22 @@ a {
 }
 
 /* ==================== */
-.img-container {
+/* images background */
+.img-container,
+.singleProduct__left figure {
   background-color: var(--card-img-container);
   filter: brightness(0.85);
   -webkit-filter: brightness(0.85);
+}
+/* buttons==================== */
+.main-button {
+  font-size: 20px;
+  padding: 7px 14px;
+}
+/* ==================== */
+.secondary-text {
+  color: var(--text-secondary);
+  font-size: var(--text-secondary-font);
 }
 /* ==================== */
 .breadcrumb-section {
