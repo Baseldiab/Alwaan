@@ -15,7 +15,7 @@ function CardProduct(props) {
         <Card.Title>
           <Link
             className="text-dark text-capitalize"
-            to={`products/productId=${props.id}`}
+            to={`/products/productId=${props.id}`}
           >
             {props.title}
           </Link>

@@ -44,7 +44,8 @@ function Dashboard() {
   return (
     <>
       <section className="breadcrumb-section py-3">
-        <Container>
+        <Container className="text-center">
+          <h1>Dashboard</h1>
           <Breadcrumb>
             <Breadcrumb.Item active>
               <Link
@@ -59,9 +60,9 @@ function Dashboard() {
         </Container>
       </section>
 
-      <section className="products ">
-        <Container>
-          <Table striped className="products__table my-2">
+      <section className="products dashboard">
+        <div className="dashboard__container">
+          <Table striped className="products__table dashboard__table my-2">
             <thead>
               <tr>
                 <th className="text-capitalize">id</th>
@@ -83,8 +84,8 @@ function Dashboard() {
                       ${Number(product.price).toFixed(2)}
                     </td>
                     <td>
-                      <div className="table-btns">
-                        <Button variant="warning" className="mx-1">
+                      <div className=" dashboard__btns text-center">
+                        <Button variant="warning">
                           <Link
                             className="text-dark"
                             to={`/dashboard/edit/${product.id}`}
@@ -94,7 +95,6 @@ function Dashboard() {
                         </Button>
                         <Button
                           variant="danger"
-                          className="mx-1"
                           onClick={() => {
                             deleteItem(product);
                           }}
@@ -108,7 +108,7 @@ function Dashboard() {
               })}
             </tbody>
           </Table>
-        </Container>
+        </div>
       </section>
     </>
   );

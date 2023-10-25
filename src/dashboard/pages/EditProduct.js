@@ -43,6 +43,7 @@ function EditProduct() {
     <>
       <section className="breadcrumb-section py-3">
         <Container>
+          <h1 className="text-uppercase text-center">Edit product</h1>
           <Breadcrumb>
             <Breadcrumb.Item active>
               <Link

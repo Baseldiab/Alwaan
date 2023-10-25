@@ -19,9 +19,12 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import InnerImageZoom from "react-inner-image-zoom";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.min.css";
+import { useDispatch } from "react-redux";
+import { addToWish } from "../rtl/slices/Wish-slice";
 
 function SingleProduct() {
-  let params = useParams();
+  const params = useParams();
+  const dispatch = useDispatch();
 
   const filterParams = params.productId.match(/\d+/g).map(Number);
 
@@ -36,6 +39,7 @@ function SingleProduct() {
   return (
     <main>
       <section className="breadcrumb-section py-3">
+        <h1 className="text-uppercase">product information</h1>
         <Container>
           <Breadcrumb>
             <Breadcrumb.Item active>
@@ -86,9 +90,9 @@ function SingleProduct() {
                 <h4 className="singleProduct__description-head my-2 text-capitalize">
                   description
                 </h4>
-                <div className="singleProduct__description-text secondary-text ">
+                <p className="singleProduct__description-text secondary-text ">
                   {singleProduct.description}
-                </div>
+                </p>
               </div>
               <div className="singleProduct__buttons my-4">
                 <Button
@@ -100,6 +104,7 @@ function SingleProduct() {
                 <Button
                   className="main-button add-wish add-cart-singleProduct me-2 my-1"
                   variant="outline-primary"
+                  onClick={() => dispatch(addToWish(singleProduct))}
                 >
                   Add to Wish
                 </Button>
@@ -112,15 +117,15 @@ function SingleProduct() {
                 />
               </figure>
 
-              <div class="singleProduct__meta">
-                <p class="text-capitalize secondary-text ">
-                  <span class="fw-medium">vender:</span> alwaan
+              <div className="singleProduct__meta">
+                <p className="text-capitalize secondary-text ">
+                  <span className="fw-medium">vender:</span> alwaan
                 </p>
-                <p class="text-uppercase secondary-text">
-                  <span class="fw-medium">sku:</span> N/A
+                <p className="text-uppercase secondary-text">
+                  <span className="fw-medium">sku:</span> N/A
                 </p>
-                <p class="text-capitalize secondary-text">
-                  <span class="fw-medium">share:</span>
+                <div className="text-capitalize secondary-text">
+                  <span className="fw-medium">share:</span>
                   <a href="facebook.com" className="secondary-text px-1">
                     <FontAwesomeIcon icon={faFacebookF} />
                   </a>
@@ -139,7 +144,7 @@ function SingleProduct() {
                   <p className="secondary-text px-1 d-inline-block">
                     <FontAwesomeIcon icon={faTumblr} />
                   </p>
-                </p>
+                </div>
               </div>
             </Col>
           </Row>
@@ -190,26 +195,30 @@ function SingleProduct() {
               aria-labelledby="details-tab"
               tabIndex="0"
             >
-              <p class="text-capitalize information__text text-secondary">
+              <p className="text-capitalize information__text text-secondary">
                 price:
-                <span class="information__price fw-bold ms-1">
+                <span className="information__price fw-bold ms-1">
                   ${Number(singleProduct.price).toFixed(2)}
                 </span>
               </p>
 
-              <p class="text-capitalize information__text text-secondary">
+              <p className="text-capitalize information__text text-secondary">
                 category:
-                <span class="information__pages fw-bold ms-1">
+                <span className="information__pages fw-bold ms-1">
                   {singleProduct.category}
                 </span>
               </p>
-              <p class="text-capitalize information__text text-secondary">
+              <p className="text-capitalize information__text text-secondary">
                 Availability:
-                <span class="information__language fw-bold ms-1">In Stock</span>
+                <span className="information__language fw-bold ms-1">
+                  In Stock
+                </span>
               </p>
-              <p class="text-capitalize information__text text-secondary">
+              <p className="text-capitalize information__text text-secondary">
                 Last Update:
-                <span class="information__date fw-bold ms-1">2 days ago</span>
+                <span className="information__date fw-bold ms-1">
+                  2 days ago
+                </span>
               </p>
             </div>
 
@@ -224,30 +233,28 @@ function SingleProduct() {
                 <Col xs={12} sm={3}>
                   <Image
                     src={"/images/shipping.avif"}
-                    className="mx-auto"
+                    className="mx-auto w-100"
                     alt="person image"
                   />
                 </Col>
-                <Col
-                  xs={12}
-                  sm={8}
-                  className="information__text secondary-text"
-                >
-                  Vestibulum curae torquent diam diam commodo parturient
-                  penatibus nunc dui adipiscing convallis bulum parturient
-                  suspendisse parturient a.Parturient in parturient scelerisque
-                  nibh lectus quam a natoque adipiscing a vestibulum hendrerit
-                  et pharetra fames.Consequat net <br />
-                  <br />
-                  Vestibulum parturient suspendisse parturient a.Parturient in
-                  parturient scelerisque nibh lectus quam a natoque adipiscing a
-                  vestibulum hendrerit et pharetra fames.Consequat netus.
-                  <br />
-                  <br />
-                  Scelerisque adipiscing bibendum sem vestibulum et in a a a
-                  purus lectus faucibus lobortis tincidunt purus lectus nisl
-                  class eros.Condimentum a et ullamcorper dictumst mus et
-                  tristique elementum nam inceptos hac vestibulum amet elit
+                <Col xs={12} sm={8} className="information__text ">
+                  <p className="secondary-text">
+                    Vestibulum curae torquent diam diam commodo parturient
+                    penatibus nunc dui adipiscing convallis bulum parturient
+                    suspendisse parturient a.Parturient in parturient
+                    scelerisque nibh lectus quam a natoque adipiscing a
+                    vestibulum hendrerit et pharetra fames.Consequat net <br />
+                    <br />
+                    Vestibulum parturient suspendisse parturient a.Parturient in
+                    parturient scelerisque nibh lectus quam a natoque adipiscing
+                    a vestibulum hendrerit et pharetra fames.Consequat netus.
+                    <br />
+                    <br />
+                    Scelerisque adipiscing bibendum sem vestibulum et in a a a
+                    purus lectus faucibus lobortis tincidunt purus lectus nisl
+                    class eros.Condimentum a et ullamcorper dictumst mus et
+                    tristique elementum nam inceptos hac vestibulum amet elit
+                  </p>
                 </Col>
               </Row>
             </div>

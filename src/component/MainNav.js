@@ -1,9 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
 import "./mainNav.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 
 function MainNav() {
   const location = useLocation();
+  const wishProduct = useSelector((state) => state.wish);
 
   // Function to determine if a link should be active
   const isLinkActive = (linkPath) => {
@@ -32,7 +36,7 @@ function MainNav() {
 
             <Nav.Item className="main-nav__item">
               <Link
-                className={`nav-link pe-0 ${
+                className={`nav-link  ${
                   isLinkActive("/products") ? "active" : ""
                 }`}
                 to="/products"
@@ -41,9 +45,25 @@ function MainNav() {
               </Link>
             </Nav.Item>
 
+            <Nav.Item className="main-nav__item main-nav__wish">
+              <Link
+                className={`nav-link ${
+                  isLinkActive("/wishList") ? "active" : ""
+                }`}
+                to="/wishList"
+              >
+                <div className="main-nav__badge ">
+                  <FontAwesomeIcon icon={faHeart} />
+                  <span className="main-nav__wish-number">
+                    {wishProduct.length}
+                  </span>
+                </div>
+              </Link>
+            </Nav.Item>
+
             <Nav.Item className="main-nav__item">
               <Link
-                className={`nav-link pe-0 ${
+                className={`nav-link  ${
                   isLinkActive("/dashboard") ? "active" : ""
                 }`}
                 to="/dashboard"
@@ -54,7 +74,7 @@ function MainNav() {
 
             <Nav.Item className="main-nav__item">
               <Link
-                className={`nav-link pe-0 ${
+                className={`nav-link  ${
                   isLinkActive("/dashboard/addProduct") ? "active" : ""
                 }`}
                 to="/dashboard/addProduct"

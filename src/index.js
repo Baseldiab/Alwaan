@@ -17,6 +17,7 @@ import { Provider } from "react-redux";
 import { store } from "./rtl/store";
 import ProductsPage from "./pages/productPage";
 import SingleProduct from "./pages/SingleProduct";
+import Wish from "./pages/Wish";
 const Layout = ({ children }) => {
   return (
     <main>
@@ -35,10 +36,14 @@ const router = createBrowserRouter([
       </Layout>
     ),
   },
-  // {
-  //   path: "/products/:productId",
-  //   element: <SingleProduct />,
-  // },
+  {
+    path: "/wishList",
+    element: (
+      <Layout>
+        <Wish />
+      </Layout>
+    ),
+  },
 
   {
     path: "/products",

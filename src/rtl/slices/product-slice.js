@@ -14,7 +14,6 @@ const productSlice = createSlice({
   initialState: {
     products: [],
     filteredProducts: [],
-    searchedProducts: [],
   },
   reducers: {
     setProducts: (state, action) => {
@@ -23,7 +22,6 @@ const productSlice = createSlice({
     },
     filterProducts: (state, action) => {
       const category = action.payload;
-      //   console.log(action);
       if (category) {
         const filtered = state.filteredProducts.filter(
           (product) => product.category === category

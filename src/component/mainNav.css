@@ -2,9 +2,26 @@
   /* background-color: #0d6efd; */
   background-color: var(--c-primary);
 }
+.navbar-nav {
+  --bs-nav-link-padding-y: 0 !important;
+}
 .logo-name {
   color: var(--c-white);
 }
 .logo-name__A {
   color: var(--logo-secondary);
+}
+.main-nav__badge {
+  position: relative;
+}
+.main-nav__wish-number {
+  position: absolute;
+  top: 0;
+  left: 140%;
+  /* background-color: var(--c-primary); */
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
 }

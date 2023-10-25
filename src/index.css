@@ -11,6 +11,8 @@ body {
 :root {
   --c-white: #fff;
 
+  --main-bgColor: #fff;
+
   --c-primary: #066da9;
   --logo-secondary: #09dba0;
   --c-secondary: #07a87a;
@@ -19,6 +21,8 @@ body {
 
   --text-secondary: #6c757d;
   --text-secondary-font: 18px;
+
+  --del-icon-color: #000;
 
   --bg-breadcrumb: #f8f9fa;
 
@@ -29,11 +33,15 @@ body {
 }
 
 [data-theme="dark"] {
+  --main-bgColor: #242c34;
+
   --text-secondary: #6c757d;
 
   --card-box-shadow: 0 0 16px 1px #ffffff;
   --background-gradient: linear-gradient(to top, #242c34, #192028);
   --card-img-container: #ffffff3b;
+
+  --del-icon-color: #fff;
 }
 
 code {
@@ -56,31 +64,93 @@ a {
 }
 .breadcrumb {
   margin: 0;
+  justify-content: center;
+}
+/* ======================================== */
+/* table======== */
+.table {
+  background-color: var(--main-bgColor);
+}
+.table__delete-icon {
+  color: var(--del-icon-color);
+  font-size: var(--text-secondary-font);
+}
+.table__img {
+  max-width: 80px;
 }
 .table-btns {
   display: flex;
   justify-content: center;
 }
+th,
+td,
+td a {
+  vertical-align: middle;
+  color: var(--text-secondary);
+}
+.quantity input {
+  width: 60px;
+}
+.table-btns button {
+  font-size: 18px;
+}
+
 @media (max-width: 576px) {
   .table {
+    margin-top: 15px;
     font-size: 10px;
+  }
+  thead {
+    display: none;
+  }
+  .table__deleteIem {
+    text-align: end !important;
   }
   .table-btns {
     flex-direction: column;
   }
-  .table-btns button {
-    margin: 5px 0;
-    padding: 3px;
-    font-size: 10px;
+
+  .product__addToCart {
+    font-size: 12px;
+  }
+  .table__products,
+  .sub-totalPrice__table tr {
+    /* margin-top: 15px; */
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  .addToCart-button {
+    border-bottom: 1px solid #000;
   }
 }
 
+.sub-totalPrice {
+  color: var(--text-secondary);
+}
+.sub-totalPrice__head {
+  padding: 50px;
+}
+.sub-totalPrice__h2 {
+  position: absolute;
+  top: -23px;
+  z-index: 10;
+  padding: 0 5px;
+  background-color: var(--bg-color);
+}
+.sub-totalPrice__button {
+  font-size: 1.5rem;
+}
+
+/* ======================================== */
+/* form========== */
 @media (min-width: 768px) {
   form {
     width: 60%;
+    margin: auto;
   }
-  /* .editProduct-form {
-  } */
 }
 @media (max-width: 767px) {
   form,
@@ -89,9 +159,7 @@ a {
     text-align: start;
   }
 }
-/* textarea {
-  height: 100px !important;
-} */
+
 .form-label {
   font-weight: bold;
   font-family: sans-serif;
@@ -111,13 +179,13 @@ a {
   }
 }
 
-/* ==================== */
+/* ======================================== */
 /* images background */
 .img-container,
 .singleProduct__left figure {
   background-color: var(--card-img-container);
-  filter: brightness(0.85);
-  -webkit-filter: brightness(0.85);
+  filter: brightness(0.9);
+  -webkit-filter: brightness(0.9);
 }
 /* buttons==================== */
 .main-button {

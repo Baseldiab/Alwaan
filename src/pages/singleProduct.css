@@ -7,6 +7,9 @@
   color: var(--c-primary);
   font-size: 25px;
 }
+.singleProduct__left figure {
+  padding: 10px;
+}
 
 .singleProduct__trustSeal img {
   max-width: 100%;
