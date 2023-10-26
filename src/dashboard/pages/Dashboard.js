@@ -56,7 +56,7 @@ function Dashboard() {
           <DashNav />
           <section className="breadcrumb-section py-3">
             <Container className="text-center">
-              <h1>Dashboard</h1>
+              <h1 className="main-head text-uppercase text-center">Products</h1>
               <Breadcrumb>
                 <Breadcrumb.Item active>
                   <Link
@@ -71,7 +71,7 @@ function Dashboard() {
             </Container>
           </section>
 
-          <section className="products dashboard">
+          <section className="products dashboard my-5">
             <div className="dashboard__container">
               <Table striped className="products__table dashboard__table my-2">
                 <thead>

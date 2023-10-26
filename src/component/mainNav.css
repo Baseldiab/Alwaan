@@ -5,9 +5,7 @@
 .navbar-nav {
   --bs-nav-link-padding-y: 0 !important;
 }
-.logo-name {
-  color: var(--c-white);
-}
+
 .logo-name__A {
   color: var(--logo-secondary);
 }

@@ -12,28 +12,31 @@ import {
 import { Link } from "react-router-dom";
 import MainNav from "../component/MainNav";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteCartItem, onChangeQuantity } from "../rtl/slices/Cart-slice";
+import {
+  calcTotalPrice,
+  deleteCartItem,
+  onChangeQuantity,
+} from "../rtl/slices/Cart-slice";
 import { useState } from "react";
 
 export default function Cart() {
-  const products = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-  const totalPrice = products.reduce((acc, product) => {
-    acc += product.price * product.quantity;
-    return acc;
-  }, 0);
+  const products = useSelector((state) => state.cart);
+
+  dispatch(calcTotalPrice());
+  const totalPrice = localStorage.getItem("totalPrice");
 
   const handleDeleteItem = (itemId) => {
     dispatch(deleteCartItem(itemId));
   };
 
+  // for modal component
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   return (
-    <main>
+    <main id="cart">
       <MainNav />
       <section className="breadcrumb-section py-3">
         <Container>
@@ -133,7 +136,7 @@ export default function Cart() {
                       subtotal
                     </td>
                     <td className="sub-totalPrice__price main-text fw-bold">
-                      {totalPrice.toFixed(2)}
+                      {Number(totalPrice).toFixed(2)}
                     </td>
                   </tr>
                 </tbody>

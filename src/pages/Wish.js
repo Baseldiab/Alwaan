@@ -23,7 +23,7 @@ export default function Wish() {
   };
 
   return (
-    <main>
+    <main id="wish">
       <MainNav />
       <section className="breadcrumb-section py-3">
         <Container>
@@ -31,7 +31,7 @@ export default function Wish() {
         </Container>
       </section>
 
-      <section className="products ">
+      <section className="products my-5">
         <Container>
           <Table striped className="products__table my-2">
             <thead>

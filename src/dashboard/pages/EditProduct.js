@@ -62,7 +62,9 @@ function EditProduct() {
           <DashNav />
           <section className="breadcrumb-section py-3">
             <Container>
-              <h1 className="text-uppercase text-center">Edit product</h1>
+              <h1 className=" main-head text-uppercase text-center">
+                Edit product
+              </h1>
               <Breadcrumb>
                 <Breadcrumb.Item active>
                   <Link
@@ -78,7 +80,7 @@ function EditProduct() {
             </Container>
           </section>
 
-          <section className="editProduct container my-3">
+          <section className="editProduct container my-5">
             <Container>
               <Form className="editProduct-form" onSubmit={formatSubmit}>
                 <Form.Group

@@ -99,7 +99,7 @@ function Products() {
 
               <Col xs={12} md={9} className="right-side col-md-9 col-12">
                 <div className="select-category ">
-                  <Form>
+                  <Form className="product__filter">
                     <Form.Label
                       className="select__label text-capitalize   ms-0 me-2"
                       htmlFor="categoryName"

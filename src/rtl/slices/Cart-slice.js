@@ -15,17 +15,15 @@ const cartSlice = createSlice({
 
       if (findProduct) {
         findProduct.quantity = Number(findProduct.quantity) + 1;
-        localStorage.setItem("cart", JSON.stringify(state));
       } else {
         const productClone = { ...action.payload, quantity: 1 };
         state.push(productClone);
-        localStorage.setItem("cart", JSON.stringify(state));
       }
+      localStorage.setItem("cart", JSON.stringify(state));
     },
     onChangeQuantity: (state, action) => {
       const { productId, qty } = action.payload;
       const findProduct = state.find((item) => item.id === productId);
-      console.log(qty);
       findProduct.quantity = qty;
       localStorage.setItem("cart", JSON.stringify(state));
     },
@@ -36,12 +34,19 @@ const cartSlice = createSlice({
       localStorage.setItem("cart", JSON.stringify(updatedState));
       return updatedState;
     },
+    calcTotalPrice: (state) => {
+      let totalPrice = 0;
+      totalPrice = state.reduce((acc, product) => {
+        acc += product.price * product.quantity;
+        localStorage.setItem("totalPrice", JSON.stringify(acc.toFixed(2)));
+        return acc;
+      }, 0);
+      localStorage.setItem("totalPrice", JSON.stringify(totalPrice));
+    },
   },
 });
 
-export const { addToCart, deleteCartItem, onChangeQuantity } =
+export const { addToCart, deleteCartItem, onChangeQuantity, calcTotalPrice } =
   cartSlice.actions;
 
 export default cartSlice.reducer;
-
-// ================================================================

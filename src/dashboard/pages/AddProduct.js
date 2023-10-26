@@ -56,7 +56,9 @@ function AddNewProduct() {
       <DashNav />
       <section className="breadcrumb-section py-3">
         <Container>
-          <h1 className="text-uppercase text-center">Add new product</h1>
+          <h1 className="main-head text-uppercase text-center">
+            Add new product
+          </h1>
           <Breadcrumb>
             <Breadcrumb.Item active>
               <Link
@@ -73,7 +75,7 @@ function AddNewProduct() {
         </Container>
       </section>
 
-      <section className="addProduct my-3">
+      <section className="addProduct my-5">
         <Container>
           <Form className="addProduct-form" onSubmit={formatSubmit}>
             <FloatingLabel

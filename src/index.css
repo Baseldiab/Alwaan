@@ -52,7 +52,10 @@ body {
 
   --breadcrumb-shadow: 0 0.1rem 0.3rem #00000026;
 }
-
+#wish,
+#cart {
+  font-family: Dosis, Helvetica, Arial, sans-serif;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -191,6 +194,9 @@ td a {
 @media (min-width: 768px) {
   form {
     width: 60%;
+  }
+  .addProduct-form,
+  .editProduct-form {
     margin: auto;
   }
 }
@@ -235,6 +241,10 @@ td a {
   padding: 7px 14px;
 }
 /* ==================== */
+.logo-name {
+  color: var(--c-white);
+  font-size: var(--text-main-font);
+}
 .main-text {
   color: var(--text-primary);
   font-size: var(--text-main-font);

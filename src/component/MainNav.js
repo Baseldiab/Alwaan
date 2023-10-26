@@ -2,13 +2,20 @@ import { Link, useLocation } from "react-router-dom";
 import "./mainNav.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faHeart } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from "react-redux";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import Logo from "./Logo";
+import { calcTotalPrice } from "../rtl/slices/Cart-slice";
 
 function MainNav() {
   const location = useLocation();
   const wishProduct = useSelector((state) => state.wish);
   const cartProduct = useSelector((state) => state.cart);
+
+  let dispatch = useDispatch();
+  dispatch(calcTotalPrice());
+  const totalPrice = localStorage.getItem("totalPrice");
 
   // Function to determine if a link should be active
   const isLinkActive = (linkPath) => {
@@ -17,12 +24,7 @@ function MainNav() {
   return (
     <Navbar className="main-nav" data-bs-theme="dark" expand="lg">
       <Container>
-        <Link
-          className="logo-name navbar-brand fw-bold fs-4 text-decoration-none text-uppercase"
-          to={"/"}
-        >
-          <span className="logo-name__A">A</span>lwaan
-        </Link>
+        <Logo />
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="nav__list">
           <Nav variant="underline">
@@ -69,8 +71,12 @@ function MainNav() {
               >
                 <div className="main-nav__badge ">
                   <FontAwesomeIcon icon={faCartShopping} />
-                  <span className="main-nav__number main-nav__cart-number">
+                  <span className="mx-1 main-nav__cart-number">
                     {cartProduct.length}
+                  </span>
+                  /
+                  <span className="ms-1 main-nav__cart-total-price fw-bold">
+                    ${totalPrice ? Number(totalPrice).toFixed(2) : 0.0}
                   </span>
                 </div>
               </Link>
