@@ -14,7 +14,7 @@ const cartSlice = createSlice({
       const findProduct = state.find((item) => item.id === product.id);
 
       if (findProduct) {
-        findProduct.quantity += 1;
+        findProduct.quantity = Number(findProduct.quantity) + 1;
         localStorage.setItem("cart", JSON.stringify(state));
       } else {
         const productClone = { ...action.payload, quantity: 1 };
@@ -22,6 +22,14 @@ const cartSlice = createSlice({
         localStorage.setItem("cart", JSON.stringify(state));
       }
     },
+    onChangeQuantity: (state, action) => {
+      const { productId, qty } = action.payload;
+      const findProduct = state.find((item) => item.id === productId);
+      console.log(qty);
+      findProduct.quantity = qty;
+      localStorage.setItem("cart", JSON.stringify(state));
+    },
+
     deleteCartItem: (state, action) => {
       const productId = action.payload;
       const updatedState = state.filter((item) => item.id !== productId);
@@ -31,7 +39,8 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, deleteCartItem } = cartSlice.actions;
+export const { addToCart, deleteCartItem, onChangeQuantity } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
 
