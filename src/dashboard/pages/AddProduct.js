@@ -10,6 +10,8 @@ import {
   Form,
   Row,
 } from "react-bootstrap";
+import MainNav from "../../component/MainNav";
+import DashNav from "../component/DashNav";
 
 function AddNewProduct() {
   let navigate = useNavigate();
@@ -49,7 +51,9 @@ function AddNewProduct() {
   };
 
   return (
-    <>
+    <main>
+      <MainNav />
+      <DashNav />
       <section className="breadcrumb-section py-3">
         <Container>
           <h1 className="text-uppercase text-center">Add new product</h1>
@@ -153,7 +157,7 @@ function AddNewProduct() {
           </Form>
         </Container>
       </section>
-    </>
+    </main>
   );
 }
 export default AddNewProduct;

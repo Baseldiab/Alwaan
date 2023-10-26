@@ -5,8 +5,8 @@ import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
-import DashNav from "./dashboard/component/DashNav";
-import MainNav from "./component/MainNav";
+// import DashNav from "./dashboard/component/DashNav";
+// import MainNav from "./component/MainNav";
 import Dashboard from "./dashboard/pages/Dashboard";
 import AddNewProduct from "./dashboard/pages/AddProduct";
 import EditProduct from "./dashboard/pages/EditProduct";
@@ -18,10 +18,12 @@ import { store } from "./rtl/store";
 import ProductsPage from "./pages/productPage";
 import SingleProduct from "./pages/SingleProduct";
 import Wish from "./pages/Wish";
+import Cart from "./pages/Cart";
+import ScrollToTopButton from "./component/ScrollToTopButton";
 const Layout = ({ children }) => {
   return (
     <main>
-      <MainNav />
+      <ScrollToTopButton />
       {children}
     </main>
   );
@@ -36,11 +38,20 @@ const router = createBrowserRouter([
       </Layout>
     ),
   },
+
   {
     path: "/wishList",
     element: (
       <Layout>
         <Wish />
+      </Layout>
+    ),
+  },
+  {
+    path: "/cart",
+    element: (
+      <Layout>
+        <Cart />
       </Layout>
     ),
   },
@@ -71,7 +82,7 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: (
       <Layout>
-        <DashNav />
+        {/*    <DashNav /> */}
         <div id="detail">
           <Outlet />
         </div>

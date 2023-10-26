@@ -2,12 +2,13 @@ import { Link, useLocation } from "react-router-dom";
 import "./mainNav.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 
 function MainNav() {
   const location = useLocation();
   const wishProduct = useSelector((state) => state.wish);
+  const cartProduct = useSelector((state) => state.cart);
 
   // Function to determine if a link should be active
   const isLinkActive = (linkPath) => {
@@ -54,8 +55,22 @@ function MainNav() {
               >
                 <div className="main-nav__badge ">
                   <FontAwesomeIcon icon={faHeart} />
-                  <span className="main-nav__wish-number">
+                  <span className="main-nav__number main-nav__wish-number">
                     {wishProduct.length}
+                  </span>
+                </div>
+              </Link>
+            </Nav.Item>
+
+            <Nav.Item className="main-nav__item main-nav__cart">
+              <Link
+                className={`nav-link ${isLinkActive("/cart") ? "active" : ""}`}
+                to="/cart"
+              >
+                <div className="main-nav__badge ">
+                  <FontAwesomeIcon icon={faCartShopping} />
+                  <span className="main-nav__number main-nav__cart-number">
+                    {cartProduct.length}
                   </span>
                 </div>
               </Link>

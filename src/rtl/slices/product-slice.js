@@ -14,6 +14,7 @@ const productSlice = createSlice({
   initialState: {
     products: [],
     filteredProducts: [],
+    loading: false,
   },
   reducers: {
     setProducts: (state, action) => {
@@ -40,10 +41,18 @@ const productSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchProducts.fulfilled, (state, action) => {
-      state.products = action.payload; // Update the state with fetched products
-      state.filteredProducts = action.payload; // Set filteredProducts to initial fetched products
-    });
+    builder
+      .addCase(fetchProducts.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchProducts.fulfilled, (state, action) => {
+        state.products = action.payload;
+        state.filteredProducts = action.payload;
+        state.loading = false;
+      })
+      .addCase(fetchProducts.rejected, (state) => {
+        state.loading = false;
+      });
   },
 });
 

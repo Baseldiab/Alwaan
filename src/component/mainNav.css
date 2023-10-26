@@ -14,7 +14,7 @@
 .main-nav__badge {
   position: relative;
 }
-.main-nav__wish-number {
+.main-nav__number {
   position: absolute;
   top: 0;
   left: 140%;

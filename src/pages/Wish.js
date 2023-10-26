@@ -7,22 +7,24 @@ import { Button, Container, Image, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { deleteItem } from "../rtl/slices/Wish-slice";
 import { useDispatch, useSelector } from "react-redux";
+import MainNav from "../component/MainNav";
+import { addToCart } from "../rtl/slices/Cart-slice";
 
 export default function Wish() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.wish);
-  console.log(products);
 
   const handleDelete = (productId) => {
     dispatch(deleteItem(productId));
-    // const updatedWishlist = products.filter(
-    //   (product) => product.id !== productId
-    // );
-    // localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+  };
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
   };
 
   return (
-    <>
+    <main>
+      <MainNav />
       <section className="breadcrumb-section py-3">
         <Container>
           <h1 className="text-uppercase text-center">Wishlist</h1>
@@ -77,7 +79,11 @@ export default function Wish() {
                     </td>
                     <td>
                       <div className="table-btns">
-                        <Button variant="primary" className="mx-1">
+                        <Button
+                          variant="primary"
+                          className="mx-1"
+                          onClick={() => handleAddToCart(product)}
+                        >
                           <FontAwesomeIcon icon={faCartArrowDown} />
                         </Button>
                       </div>
@@ -89,6 +95,6 @@ export default function Wish() {
           </Table>
         </Container>
       </section>
-    </>
+    </main>
   );
 }

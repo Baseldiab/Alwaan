@@ -21,6 +21,8 @@ import InnerImageZoom from "react-inner-image-zoom";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.min.css";
 import { useDispatch } from "react-redux";
 import { addToWish } from "../rtl/slices/Wish-slice";
+import MainNav from "../component/MainNav";
+import { addToCart } from "../rtl/slices/Cart-slice";
 
 function SingleProduct() {
   const params = useParams();
@@ -38,8 +40,9 @@ function SingleProduct() {
 
   return (
     <main>
+      <MainNav />
       <section className="breadcrumb-section py-3">
-        <h1 className="text-uppercase">product information</h1>
+        <h1 className="text-uppercase text-center">product information</h1>
         <Container>
           <Breadcrumb>
             <Breadcrumb.Item active>
@@ -98,6 +101,7 @@ function SingleProduct() {
                 <Button
                   className="main-button add-cart add-cart-singleProduct me-2 my-1"
                   variant="primary"
+                  onClick={() => dispatch(addToCart(singleProduct))}
                 >
                   Add to Cart
                 </Button>
