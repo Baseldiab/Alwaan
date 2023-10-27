@@ -7,6 +7,7 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import Logo from "./Logo";
 import { calcTotalPrice } from "../rtl/slices/Cart-slice";
+import { useEffect } from "react";
 
 function MainNav() {
   const location = useLocation();
@@ -14,7 +15,10 @@ function MainNav() {
   const cartProduct = useSelector((state) => state.cart);
 
   let dispatch = useDispatch();
-  dispatch(calcTotalPrice());
+  useEffect(() => {
+    dispatch(calcTotalPrice());
+  }, [dispatch]);
+
   const totalPrice = localStorage.getItem("totalPrice");
 
   // Function to determine if a link should be active
@@ -56,7 +60,7 @@ function MainNav() {
                 to="/wishList"
               >
                 <div className="main-nav__badge ">
-                  <FontAwesomeIcon icon={faHeart} />
+                  <FontAwesomeIcon className="fs-5" icon={faHeart} />
                   <span className="main-nav__number main-nav__wish-number">
                     {wishProduct.length}
                   </span>
@@ -70,7 +74,7 @@ function MainNav() {
                 to="/cart"
               >
                 <div className="main-nav__badge ">
-                  <FontAwesomeIcon icon={faCartShopping} />
+                  <FontAwesomeIcon className="fs-5" icon={faCartShopping} />
                   <span className="mx-1 main-nav__cart-number">
                     {cartProduct.length}
                   </span>

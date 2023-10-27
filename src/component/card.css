@@ -27,3 +27,40 @@
 .card__price {
   font-size: 14px;
 }
+
+.card__front-img:hover {
+}
+.card__back-img {
+  opacity: 0;
+}
+.card-section,
+.card__back-img,
+.card__front-img {
+  transition: all 0.4s ease-in;
+  -webkit-transition: all 0.4s ease-in;
+  -moz-transition: all 0.4s ease-in;
+  -ms-transition: all 0.4s ease-in;
+  -o-transition: all 0.4s ease-in;
+}
+.card-section:hover :where(.card__front-img, .card-body, .card-footer) {
+  opacity: 0.6;
+}
+.card-section:hover .card__back-img {
+  opacity: 1;
+}
+
+.card__btns {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.button-card {
+  width: fit-content;
+  font-size: 16px;
+}

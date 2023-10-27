@@ -18,12 +18,15 @@ import {
   onChangeQuantity,
 } from "../rtl/slices/Cart-slice";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export default function Cart() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.cart);
 
-  dispatch(calcTotalPrice());
+  useEffect(() => {
+    dispatch(calcTotalPrice());
+  }, [dispatch]);
   const totalPrice = localStorage.getItem("totalPrice");
 
   const handleDeleteItem = (itemId) => {

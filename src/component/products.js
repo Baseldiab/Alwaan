@@ -140,6 +140,7 @@ function Products() {
                         title={product.title}
                         category={product.category}
                         price={product.price}
+                        description={product.description}
                       />
                     </Col>
                   ))}

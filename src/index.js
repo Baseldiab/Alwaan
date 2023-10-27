@@ -96,7 +96,11 @@ const router = createBrowserRouter([
 
       {
         path: "addProduct",
-        element: <AddNewProduct />,
+        element: (
+          <>
+            <AddNewProduct />
+          </>
+        ),
       },
 
       {
