@@ -29,13 +29,15 @@ export default function ScrollToTopButton() {
   };
 
   return (
-    <Button
-      className={showButton ? "scroll-top" : "d-none"}
-      style={{ zIndex: "1000000" }}
-      variant="primary"
-      onClick={() => scrollToTop()}
-    >
-      <FontAwesomeIcon icon={faAngleUp} />
-    </Button>
+    <>
+      <Button
+        className={showButton ? "scroll-top" : "d-none"}
+        style={{ zIndex: "1000000" }}
+        variant="primary"
+        onClick={() => scrollToTop()}
+      >
+        <FontAwesomeIcon icon={faAngleUp} />
+      </Button>
+    </>
   );
 }

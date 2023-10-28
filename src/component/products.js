@@ -23,16 +23,16 @@ function Products() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
 
-  useEffect(() => {
-    dispatch(fetchProducts());
-    getCategory();
-  }, [dispatch]);
-
   const getCategory = () => {
     fetch("http://localhost:3000/categories")
       .then((res) => res.json())
       .then((data) => setCategory(data));
   };
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+    getCategory();
+  }, [dispatch]);
 
   const filterProduct = (value) => {
     if (value === "all") {

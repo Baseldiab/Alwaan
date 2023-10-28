@@ -2,7 +2,7 @@ import Spinner from "react-bootstrap/Spinner";
 
 export default function SpinnerData() {
   return (
-    <div className="spinner-container position-fixed top-50 start-50 translate-middle ">
+    <div className="spinner-container-fluid position-fixed top-50 start-50 translate-middle ">
       <Spinner
         style={{
           width: "150px",

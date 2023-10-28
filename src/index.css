@@ -2,6 +2,8 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Lato:ital,wght@0,400;1,300;1,400&display=swap");
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -30,7 +32,7 @@ body {
 
   --bg-breadcrumb: #f8f9fa;
 
-  --card-img-container: #fff;
+  --card-img-container-fluid: #fff;
   --card-box-shadow: 0px 0px 16px 1px rgb(22 22 25 / 64%);
   --box-shadow: 0 2px 10px 0px rgba(0, 0, 0, 0.5);
   --background-gradient: linear-gradient(to top, #ffffff, #b0afaf30);
@@ -46,17 +48,24 @@ body {
 
   --card-box-shadow: 0 0 16px 1px #ffffff;
   --background-gradient: linear-gradient(to top, #242c34, #192028);
-  --card-img-container: #ffffff3b;
+  --card-img-container-fluid: #ffffff3b;
 
   --del-icon-color: #fff;
 
   --breadcrumb-shadow: 0 0.1rem 0.3rem #00000026;
 }
+@media (min-width: 1200px) {
+  .container {
+    max-width: calc(1170px + 1.5rem);
+  }
+}
 #wish,
 #cart,
-.main-nav {
+.main-nav,
+.dash-nav {
   font-family: Dosis, Helvetica, Arial, sans-serif;
 }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -83,13 +92,21 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.main-nav {
+  z-index: 1000000;
+}
 
 .main-nav__item a,
 .dash-nav__item a {
   width: fit-content;
 }
-.logo-name {
-  color: var(--c-white);
+.logo-img {
+  width: 150px;
+}
+@media (max-width: 576px) {
+  .logo-img {
+    width: 100px;
+  }
 }
 .logo-name__A {
   color: var(--logo-secondary);
@@ -230,9 +247,10 @@ td a {
 
 /* ======================================== */
 /* images background */
-.img-container,
+.img-container-fluid,
 .singleProduct__left figure {
-  background-color: var(--card-img-container);
+  background-color: var(--card-img-container-fluid);
+  margin: 7px;
   filter: brightness(0.9);
   -webkit-filter: brightness(0.9);
 }

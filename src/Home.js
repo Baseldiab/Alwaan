@@ -1,8 +1,10 @@
-import Products from "./component/products";
+import Carousal from "./component/Carousal-section";
+import MainNav from "./component/MainNav";
 function HomePage() {
   return (
     <main>
-      <Products />
+      <MainNav />
+      <Carousal />
     </main>
   );
 }

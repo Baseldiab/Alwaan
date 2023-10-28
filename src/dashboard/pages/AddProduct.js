@@ -55,7 +55,7 @@ function AddNewProduct() {
       <MainNav />
       <DashNav />
       <section className="breadcrumb-section py-3">
-        <Container>
+        <Container >
           <h1 className="main-head text-uppercase text-center">
             Add new product
           </h1>
@@ -76,7 +76,7 @@ function AddNewProduct() {
       </section>
 
       <section className="addProduct my-5">
-        <Container>
+        <Container >
           <Form className="addProduct-form" onSubmit={formatSubmit}>
             <FloatingLabel
               controlId="floatingTitle"

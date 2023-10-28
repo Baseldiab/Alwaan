@@ -6,12 +6,12 @@
 .dashboard__btns button {
   margin: 5px 0;
 }
-.dashboard__container {
+.dashboard__container-fluid {
   width: 95% !important;
   margin: auto;
 }
 @media (max-width: 768px) {
-  .dashboard__container {
+  .dashboard__container-fluid {
     width: 100% !important;
     padding: 0 !important;
   }

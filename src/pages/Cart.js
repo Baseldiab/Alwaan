@@ -130,7 +130,7 @@ export default function Cart() {
             </Table>
           </Col>
           <Col xs={12} xl={3} className="sub-totalPrice mt-5">
-            <div className="sub-totalPrice__head px-3 pb-5 border border-3 position-relative border-primary container">
+            <div className="sub-totalPrice__head px-3 pb-5 border border-3 position-relative border-primary container-fluid">
               <h2 className="text-uppercase sub-totalPrice__h2">cart total</h2>
               <table className="sub-totalPrice__table w-75">
                 <tbody>

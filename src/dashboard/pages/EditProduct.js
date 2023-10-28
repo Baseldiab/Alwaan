@@ -80,7 +80,7 @@ function EditProduct() {
             </Container>
           </section>
 
-          <section className="editProduct container my-5">
+          <section className="editProduct my-5">
             <Container>
               <Form className="editProduct-form" onSubmit={formatSubmit}>
                 <Form.Group

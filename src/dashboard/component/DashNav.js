@@ -13,7 +13,7 @@ function DashNav() {
     <Navbar className="dash-nav" expand="lg" bg="dark" data-bs-theme="dark">
       <Container>
         <Link className="navbar-brand" to={"/dashboard"}>
-          Dashboard
+          𝓓𝓪𝓼𝓱𝓫𝓸𝓪𝓻𝓭
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="nav__list">

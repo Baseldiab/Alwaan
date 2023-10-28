@@ -72,7 +72,7 @@ function Dashboard() {
           </section>
 
           <section className="products dashboard my-5">
-            <div className="dashboard__container">
+            <div className="dashboard__container-fluid">
               <Table striped className="products__table dashboard__table my-2">
                 <thead>
                   <tr>

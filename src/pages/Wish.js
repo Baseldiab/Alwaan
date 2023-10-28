@@ -26,13 +26,13 @@ export default function Wish() {
     <main id="wish">
       <MainNav />
       <section className="breadcrumb-section py-3">
-        <Container>
+        <Container >
           <h1 className="text-uppercase text-center">Wishlist</h1>
         </Container>
       </section>
 
       <section className="products my-5">
-        <Container>
+        <Container >
           <Table striped className="products__table my-2">
             <thead>
               <tr>

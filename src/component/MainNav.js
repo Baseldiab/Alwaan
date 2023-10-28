@@ -26,7 +26,11 @@ function MainNav() {
     return location.pathname === linkPath;
   };
   return (
-    <Navbar className="main-nav" data-bs-theme="dark" expand="lg">
+    <Navbar
+      className="main-nav position-sticky top-0 start-0"
+      data-bs-theme="dark"
+      expand="lg"
+    >
       <Container>
         <Logo />
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -16,11 +16,11 @@
 }
 
 /* ZOOM IMAGE======================== */
-.custom-zoom-container {
+.custom-zoom-container-fluid {
   position: relative;
 }
 
-.custom-zoom-container .zoom-image {
+.custom-zoom-container-fluid .zoom-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -34,7 +34,7 @@
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.custom-zoom-container:hover .zoom-image {
+.custom-zoom-container-fluid:hover .zoom-image {
   opacity: 1;
   transform: scale(1);
   -webkit-transform: scale(1);
