@@ -12,22 +12,17 @@ import {
 import { Link } from "react-router-dom";
 import MainNav from "../component/MainNav";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  calcTotalPrice,
-  deleteCartItem,
-  onChangeQuantity,
-} from "../rtl/slices/Cart-slice";
+import { deleteCartItem, onChangeQuantity } from "../rtl/slices/Cart-slice";
 import { useState } from "react";
-import { useEffect } from "react";
 
 export default function Cart() {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.cart);
+  const products = useSelector((state) => state.cart.cart);
 
-  useEffect(() => {
-    dispatch(calcTotalPrice());
-  }, [dispatch]);
-  const totalPrice = localStorage.getItem("totalPrice");
+  const totalPrice = products.reduce((acc, product) => {
+    acc += product.price * product.quantity;
+    return acc;
+  }, 0);
 
   const handleDeleteItem = (itemId) => {
     dispatch(deleteCartItem(itemId));

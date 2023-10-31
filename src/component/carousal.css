@@ -2,12 +2,19 @@
 .carousel-control-next {
   width: 17%;
 }
+
+@media (max-width: 992px) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: none;
+  }
+}
 .carousel-caption {
   position: absolute;
   right: 0;
   bottom: 0;
   margin: 15px;
-  top: 50%;
+  top: 45%;
   left: 40%;
   transform: translate(-50%, -50%);
   text-align: start;
@@ -18,6 +25,19 @@
   -o-transform: translate(-50%, -50%);
   transition: opacity 500ms, transform 500ms;
 }
+
+@media (max-width: 768px) {
+  .carousel__img {
+    height: 400px;
+  }
+  .carousel-caption {
+    width: 100%;
+    padding: 0 10px;
+    left: 50%;
+    top: 45%;
+  }
+}
+
 .carousel-caption.fade-in-up {
   opacity: 1;
   transform: translate(-50%, -50%);
@@ -65,4 +85,33 @@
     padding: 6px 12px;
     font-size: 14px;
   }
+}
+/* ============================================================ */
+.elementor__img {
+  filter: brightness(0.7);
+}
+.elementor__btn {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  --bs-btn-bg: white;
+  --bs-btn-border-color: none;
+  --bs-btn-color: #000;
+}
+.elementor__figure,
+.elementor__img {
+  transition: all 0.7s ease-in;
+  overflow: hidden;
+  -webkit-transition: all 0.7s ease-in;
+  -moz-transition: all 0.7s ease-in;
+  -ms-transition: all 0.7s ease-in;
+  -o-transition: all 0.7s ease-in;
+}
+.elementor__figure:hover .elementor__img {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
 }

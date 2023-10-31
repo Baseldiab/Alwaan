@@ -4,22 +4,17 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import { useDispatch, useSelector } from "react-redux";
 import Logo from "./Logo";
-import { calcTotalPrice } from "../rtl/slices/Cart-slice";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 function MainNav() {
   const location = useLocation();
   const wishProduct = useSelector((state) => state.wish);
-  const cartProduct = useSelector((state) => state.cart);
-
-  let dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(calcTotalPrice());
-  }, [dispatch]);
-
-  const totalPrice = localStorage.getItem("totalPrice");
+  const cartProduct = useSelector((state) => state.cart.cart);
+  const totalPrice = cartProduct.reduce((acc, product) => {
+    acc += Number(product.price) * product.quantity;
+    return acc;
+  }, 0);
 
   // Function to determine if a link should be active
   const isLinkActive = (linkPath) => {

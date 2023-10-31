@@ -34,14 +34,14 @@ function CardProduct(props) {
         </Link>
         <div className="card__btns h-25">
           <Button
-            className="main-button button-card add-cart add-cart-products  my-1"
+            className=" button-card add-cart add-cart-products  my-1"
             variant="light"
             onClick={() => dispatch(addToCart(props))}
           >
             Add to Cart
           </Button>
           <Button
-            className="main-button button-card add-wish add-cart-singleProduct  my-1"
+            className=" button-card add-wish add-cart-singleProduct  my-1"
             variant="outline-light"
             onClick={() => dispatch(addToWish(props))}
           >

@@ -131,7 +131,7 @@ function Products() {
                   </h5>
                 </div>
 
-                <Row xs={1} sm={2} lg={3} className="g-4 my-4">
+                <Row xs={1} sm={2} lg={3} className="g-4 my-2">
                   {products.map((product) => (
                     <Col key={product.id}>
                       <CardProduct

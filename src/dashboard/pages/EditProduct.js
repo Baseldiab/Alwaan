@@ -44,7 +44,6 @@ function EditProduct() {
         image: image || singleProduct.image,
       })
       .then((data) => {
-        console.log(data);
         navigate("/dashboard");
       })
       .catch((error) => {

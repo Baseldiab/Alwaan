@@ -62,3 +62,8 @@
   width: fit-content;
   font-size: 16px;
 }
+@media (min-width: 769px) and (max-width: 1200px) {
+  .button-card {
+    padding: 4px 8px;
+  }
+}
