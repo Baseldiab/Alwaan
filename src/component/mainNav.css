@@ -23,3 +23,16 @@
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
 }
+.main-nav .nav-link {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  text-transform: uppercase;
+}
+.main-nav__wish {
+  margin-right: 5px;
+}
+@media (max-width: 992px) {
+  .main-nav__wish {
+    margin-top: 5px;
+  }
+}

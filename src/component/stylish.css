@@ -1,0 +1,15 @@
+.stylish-section {
+  background: url("../../public/images/stylish-bg.jpg") no-repeat;
+  padding: 150px 0;
+}
+.stylish__secondary-head {
+  color: #666666;
+  font-size: 14px;
+}
+.stylish__main-head {
+  font-size: 36px;
+  font-weight: 700;
+}
+.stylish__text {
+  font-size: 15px;
+}

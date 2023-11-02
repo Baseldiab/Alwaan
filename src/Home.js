@@ -3,6 +3,8 @@ import Carousal from "./component/Carousal-section.jsx";
 import Customers from "./component/Customers-section.jsx";
 import Featured from "./component/Featured-section.jsx";
 import MainNav from "./component/MainNav";
+import Stylish from "./component/Stylish-Section.jsx";
+import MainFooter from "./component/Main-Footer.js";
 function HomePage() {
   return (
     <main>
@@ -11,6 +13,8 @@ function HomePage() {
       <Featured />
       <Customers />
       <Bestsellers />
+      <Stylish />
+      <MainFooter />
     </main>
   );
 }

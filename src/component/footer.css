@@ -1,0 +1,13 @@
+.subscribe-section {
+  background-color: var(--c-primary);
+}
+.subscribe__email-icon {
+  font-size: 4.2rem;
+}
+.subscribe-section .main-button {
+  padding: 15px 20px;
+  font-size: 15px;
+}
+.subscripe__input {
+  height: 55px;
+}

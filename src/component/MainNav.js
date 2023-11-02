@@ -37,7 +37,7 @@ function MainNav() {
           <Logo />
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="nav__list">
-            <Nav variant="underline">
+            <Nav variant="underline mx-auto">
               <Nav.Item className="main-nav__item">
                 <Link
                   className={`nav-link ${isLinkActive("/") ? "active" : ""}`}
@@ -58,6 +58,30 @@ function MainNav() {
                 </Link>
               </Nav.Item>
 
+              <Nav.Item className="main-nav__item">
+                <Link
+                  className={`nav-link  ${
+                    isLinkActive("/contact") ? "active" : ""
+                  }`}
+                  to="/contact"
+                >
+                  contact
+                </Link>
+              </Nav.Item>
+
+              <Nav.Item className="main-nav__item">
+                <Link
+                  className={`nav-link  ${
+                    isLinkActive("/contact") ? "active" : ""
+                  }`}
+                  to="/about"
+                >
+                  about us
+                </Link>
+              </Nav.Item>
+            </Nav>
+
+            <Nav variant="underline">
               {!auth.user.length ? (
                 <Nav.Item className="main-nav__item">
                   <Link

@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { animated, useTransition } from "react-spring";
 import { useState } from "react";
 import { useEffect } from "react";
+import MainButton from "./Main-button";
 
 export default function Carousal() {
   const fullYear = new Date().getFullYear();
@@ -76,14 +77,7 @@ export default function Carousal() {
                     <animated.div style={styles} className="slide-content">
                       <h2 className="slide-text text-uppercase">{item.text}</h2>
                       <h2 className="slide-head">{item.head}</h2>
-                      <Link to="/products">
-                        <Button
-                          variant="primary"
-                          className="main-button text-uppercase mt-2"
-                        >
-                          Shop Now
-                        </Button>
-                      </Link>
+                      <MainButton variant="primary" />
                     </animated.div>
                   ))}
                 </Carousel.Caption>
