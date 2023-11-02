@@ -11,7 +11,6 @@ import {
   Row,
 } from "react-bootstrap";
 import MainNav from "../../component/MainNav";
-import DashNav from "../component/DashNav";
 
 function AddNewProduct() {
   let navigate = useNavigate();
@@ -52,7 +51,6 @@ function AddNewProduct() {
   return (
     <main>
       <MainNav />
-      <DashNav />
       <section className="breadcrumb-section py-3">
         <Container>
           <h1 className="main-head text-uppercase text-center">

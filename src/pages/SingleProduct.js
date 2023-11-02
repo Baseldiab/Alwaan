@@ -23,8 +23,11 @@ import { useDispatch } from "react-redux";
 import { addToWish } from "../rtl/slices/Wish-slice";
 import MainNav from "../component/MainNav";
 import { addToCart } from "../rtl/slices/Cart-slice";
+import { useAuth } from "../Auth";
+import Swal from "sweetalert2";
 
 function SingleProduct() {
+  const auth = useAuth();
   const params = useParams();
   const dispatch = useDispatch();
 
@@ -37,6 +40,25 @@ function SingleProduct() {
       .then((res) => res.json())
       .then((data) => setSingleProduct(data));
   }, [filterParams]);
+
+  const handleAddToWish = () => {
+    if (auth.user.length) {
+      dispatch(addToWish(singleProduct));
+    } else {
+      Swal.fire({
+        title:
+          "<strong>SIGN IN TO SYNC YOUR SAVED ITEMS ACROSS ALL YOUR DEVICES</strong>",
+        icon: "warning",
+        showCloseButton: true,
+        showCancelButton: true,
+        focusConfirm: false,
+        confirmButtonText: "<a class= 'text-light' href='/login' >LOGIN</a>",
+        confirmButtonAriaLabel: "Thumbs up, great!",
+        cancelButtonText: "CONTINUE SHOPPING",
+        cancelButtonAriaLabel: "Thumbs down",
+      });
+    }
+  };
 
   return (
     <main>
@@ -79,7 +101,7 @@ function SingleProduct() {
               )}
             </Col>
             <Col xs={12} md={8} className="singleProduct__right">
-              <h1 className="singleProduct__name fw-bolder">
+              <h1 className="singleProduct__name fw-bolder text-capitalize">
                 {singleProduct.title}
               </h1>
 
@@ -108,7 +130,8 @@ function SingleProduct() {
                 <Button
                   className="main-button add-wish add-cart-singleProduct me-2 my-1"
                   variant="outline-primary"
-                  onClick={() => dispatch(addToWish(singleProduct))}
+                  title="you must login first to add to wish"
+                  onClick={handleAddToWish}
                 >
                   Add to Wish
                 </Button>

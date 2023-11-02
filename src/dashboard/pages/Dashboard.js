@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../rtl/slices/product-slice";
 import MainNav from "../../component/MainNav";
 import SpinnerData from "../../component/Spinner";
-import DashNav from "../component/DashNav";
 
 function Dashboard() {
   const products = useSelector((state) => state.products.products) || [];
@@ -53,7 +52,6 @@ function Dashboard() {
       ) : (
         <main>
           <MainNav />
-          <DashNav />
           <section className="breadcrumb-section py-3">
             <Container className="text-center">
               <h1 className="main-head text-uppercase text-center">Products</h1>

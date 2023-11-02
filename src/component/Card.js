@@ -5,9 +5,32 @@ import { Button } from "react-bootstrap";
 import { addToCart } from "../rtl/slices/Cart-slice";
 import { addToWish } from "../rtl/slices/Wish-slice";
 import { useDispatch } from "react-redux";
+import { useAuth } from "../Auth";
+import Swal from "sweetalert2";
 
 function CardProduct(props) {
+  const auth = useAuth();
   const dispatch = useDispatch();
+
+  const handleAddToWish = () => {
+    if (auth.user.length) {
+      dispatch(addToWish(props));
+    } else {
+      Swal.fire({
+        title:
+          "<strong>SIGN IN TO SYNC YOUR SAVED ITEMS ACROSS ALL YOUR DEVICES</strong>",
+        icon: "warning",
+        showCloseButton: true,
+        showCancelButton: true,
+        focusConfirm: false,
+        confirmButtonText: "<a class= 'text-light' href='/login' >SIGN IN</a>",
+        confirmButtonAriaLabel: "Thumbs up, great!",
+        cancelButtonText: "CONTINUE SHOPPING",
+        cancelButtonAriaLabel: "Thumbs down",
+      });
+    }
+  };
+
   return (
     <Card className="h-100 card-section overflow-hidden">
       <Link
@@ -29,7 +52,7 @@ function CardProduct(props) {
       >
         <Link className="text-light" to={`/products/productId=${props.id}`}>
           <Card.Text className="h-75 overflow-hidden">
-            {props.description.slice(0, 300) + "..."}
+            {props?.description?.slice(0, 300) + "..."}
           </Card.Text>
         </Link>
         <div className="card__btns h-25">
@@ -43,7 +66,7 @@ function CardProduct(props) {
           <Button
             className=" button-card add-wish add-cart-singleProduct  my-1"
             variant="outline-light"
-            onClick={() => dispatch(addToWish(props))}
+            onClick={handleAddToWish}
           >
             Add to Wish
           </Button>

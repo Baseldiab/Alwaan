@@ -4,9 +4,6 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-
-// import DashNav from "./dashboard/component/DashNav";
-// import MainNav from "./component/MainNav";
 import Dashboard from "./dashboard/pages/Dashboard";
 import AddNewProduct from "./dashboard/pages/AddProduct";
 import EditProduct from "./dashboard/pages/EditProduct";
@@ -20,6 +17,11 @@ import SingleProduct from "./pages/SingleProduct";
 import Wish from "./pages/Wish";
 import Cart from "./pages/Cart";
 import ScrollToTopButton from "./component/ScrollToTopButton";
+import AdminLogin from "./pages/AdminLogin";
+import Login from "./pages/LoginPage";
+import { ContextProvider } from "./Auth";
+import RequireAuth from "./Require-Auth";
+import RequireAdminAuth from "./Require-AdminAuth";
 const Layout = ({ children }) => {
   return (
     <main>
@@ -42,9 +44,11 @@ const router = createBrowserRouter([
   {
     path: "/wishList",
     element: (
-      <Layout>
-        <Wish />
-      </Layout>
+      <RequireAuth>
+        <Layout>
+          <Wish />
+        </Layout>
+      </RequireAuth>
     ),
   },
   {
@@ -54,6 +58,26 @@ const router = createBrowserRouter([
         <Cart />
       </Layout>
     ),
+  },
+  {
+    path: "/login",
+    element: (
+      <Layout>
+        <div id="detail">
+          <Outlet />
+        </div>
+      </Layout>
+    ),
+    children: [
+      {
+        path: "",
+        element: <Login />,
+      },
+      {
+        path: "admin",
+        element: <AdminLogin />,
+      },
+    ],
   },
 
   {
@@ -83,9 +107,11 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         {/*    <DashNav /> */}
-        <div id="detail">
-          <Outlet />
-        </div>
+        <RequireAdminAuth>
+          <div id="detail">
+            <Outlet />
+          </div>
+        </RequireAdminAuth>
       </Layout>
     ),
     children: [
@@ -115,7 +141,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <ContextProvider>
+        <RouterProvider router={router} />
+      </ContextProvider>
     </Provider>
   </React.StrictMode>
 );

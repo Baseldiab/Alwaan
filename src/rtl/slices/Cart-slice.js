@@ -7,30 +7,30 @@ const getInitialCart = () => {
 
 const cartSlice = createSlice({
   name: "cartSlice",
-  initialState: getInitialCart(),
+  initialState: getInitialCart() || [],
   reducers: {
     addToCart: (state, action) => {
       const product = action.payload;
-      const findProduct = state.cart.find((item) => item.id === product.id);
+      const findProduct = state.find((item) => item.id === product.id);
 
       if (findProduct) {
         findProduct.quantity = Number(findProduct.quantity) + 1;
       } else {
         const productClone = { ...action.payload, quantity: 1 };
-        state.cart.push(productClone);
+        state.push(productClone);
       }
       localStorage.setItem("cart", JSON.stringify(state));
     },
     onChangeQuantity: (state, action) => {
       const { productId, qty } = action.payload;
-      const findProduct = state.cart.find((item) => item.id === productId);
+      const findProduct = state.find((item) => item.id === productId);
       findProduct.quantity = qty;
       localStorage.setItem("cart", JSON.stringify(state));
     },
 
     deleteCartItem: (state, action) => {
       const productId = action.payload;
-      const updatedState = state.cart.filter((item) => item.id !== productId);
+      const updatedState = state.filter((item) => item.id !== productId);
       localStorage.setItem("cart", JSON.stringify(updatedState));
       return updatedState;
     },

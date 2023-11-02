@@ -3,7 +3,6 @@ import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Breadcrumb, Button, Col, Container, Form, Row } from "react-bootstrap";
 import MainNav from "../../component/MainNav";
-import DashNav from "../component/DashNav";
 import SpinnerData from "../../component/Spinner";
 
 function EditProduct() {
@@ -58,7 +57,6 @@ function EditProduct() {
       ) : (
         <>
           <MainNav />
-          <DashNav />
           <section className="breadcrumb-section py-3">
             <Container>
               <h1 className=" main-head text-uppercase text-center">

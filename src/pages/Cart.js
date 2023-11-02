@@ -17,7 +17,8 @@ import { useState } from "react";
 
 export default function Cart() {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.cart.cart);
+  const products = useSelector((state) => state.cart) || [];
+  console.log(products);
 
   const totalPrice = products.reduce((acc, product) => {
     acc += product.price * product.quantity;

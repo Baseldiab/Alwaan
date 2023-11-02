@@ -41,7 +41,7 @@ function Customers() {
       >
         {captions.map((caption) => {
           return (
-            <Carousel.Item className="customers__content ">
+            <Carousel.Item key={caption.index} className="customers__content ">
               <h2 className="customers__main-head text-light mb-2">
                 CUSTOMERS REVIEWS
               </h2>
