@@ -13,6 +13,7 @@ import {
 } from "../rtl/slices/product-slice";
 import SpinnerData from "./Spinner";
 import MainNav from "./MainNav";
+import MainFooter from "./Main-Footer";
 
 function Products() {
   const products = useSelector((state) => state.products.products) || [];
@@ -148,6 +149,7 @@ function Products() {
               </Col>
             </Row>
           </Container>
+          <MainFooter />
         </>
       )}
     </>

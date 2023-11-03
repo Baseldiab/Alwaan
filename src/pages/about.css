@@ -1,0 +1,25 @@
+.about-section1-header {
+  margin-bottom: 1.3rem;
+  font-size: 3.2rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.about-section1-text {
+  margin: auto;
+  text-align: center;
+  max-width: 57rem;
+}
+@media (max-width: 576px) {
+  .about-section1-header {
+    font-size: 2.5rem;
+  }
+}
+.boost-section,
+.awards-section {
+  background-color: #fafafb;
+}
+.award__figure {
+  min-height: 120px;
+}

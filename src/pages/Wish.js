@@ -9,6 +9,7 @@ import { deleteItem } from "../rtl/slices/Wish-slice";
 import { useDispatch, useSelector } from "react-redux";
 import MainNav from "../component/MainNav";
 import { addToCart } from "../rtl/slices/Cart-slice";
+import MainFooter from "../component/Main-Footer";
 
 export default function Wish() {
   const dispatch = useDispatch();
@@ -26,13 +27,13 @@ export default function Wish() {
     <main id="wish">
       <MainNav />
       <section className="breadcrumb-section py-3">
-        <Container >
+        <Container>
           <h1 className="text-uppercase text-center">Wishlist</h1>
         </Container>
       </section>
 
       <section className="products my-5">
-        <Container >
+        <Container>
           <Table striped className="products__table my-2">
             <thead>
               <tr>
@@ -95,6 +96,7 @@ export default function Wish() {
           </Table>
         </Container>
       </section>
+      <MainFooter />
     </main>
   );
 }

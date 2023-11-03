@@ -92,7 +92,7 @@ function LoginForm(props) {
         </Container>
       </section>
       {/* ========================== */}
-      <Container className=" login-header my-2">
+      <Container className=" login-header my-4 ">
         <Breadcrumb className="my-2">
           <Breadcrumb.Item active>
             <Link
@@ -119,7 +119,7 @@ function LoginForm(props) {
         </Breadcrumb>
       </Container>
       {/* ========================== */}
-      <section>
+      <section className="my-2 pb-5">
         <Container>
           <Form className="addProduct-form" onSubmit={formatSubmit}>
             <FloatingLabel

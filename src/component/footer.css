@@ -11,3 +11,33 @@
 .subscripe__input {
   height: 55px;
 }
+.subscribe-section .form-floating > label {
+  padding: 0.6rem 0.75rem !important;
+}
+.footer__lists {
+  border-bottom: 1px solid #6c757d6b;
+}
+.footer__header {
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.footer__text {
+  font-size: 14px;
+  line-height: 26px;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+.footer__link {
+  color: var(--text-secondary);
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+}
+.footer__link:hover,
+.footer__name {
+  color: var(--c-primary);
+  font-weight: bold;
+}

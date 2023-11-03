@@ -19,8 +19,9 @@ function MainNav() {
     return acc;
   }, 0);
 
-  console.log(auth.user.length);
-  console.log(auth.isAdmin);
+  // console.log(auth.user.length);
+  // console.log(auth.user);
+  // console.log(auth.isAdmin);
 
   // Function to determine if a link should be active
   const isLinkActive = (linkPath) => {
@@ -37,7 +38,7 @@ function MainNav() {
           <Logo />
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="nav__list">
-            <Nav variant="underline mx-auto">
+            <Nav variant="underline mx-auto main-nav__center">
               <Nav.Item className="main-nav__item">
                 <Link
                   className={`nav-link ${isLinkActive("/") ? "active" : ""}`}
@@ -72,7 +73,7 @@ function MainNav() {
               <Nav.Item className="main-nav__item">
                 <Link
                   className={`nav-link  ${
-                    isLinkActive("/contact") ? "active" : ""
+                    isLinkActive("/about") ? "active" : ""
                   }`}
                   to="/about"
                 >
@@ -81,8 +82,8 @@ function MainNav() {
               </Nav.Item>
             </Nav>
 
-            <Nav variant="underline">
-              {!auth.user.length ? (
+            <Nav variant="underline my-4">
+              {auth.user.length === 0 ? (
                 <Nav.Item className="main-nav__item">
                   <Link
                     key="login-link"

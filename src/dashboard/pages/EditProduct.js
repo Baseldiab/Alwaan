@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { Breadcrumb, Button, Col, Container, Form, Row } from "react-bootstrap";
 import MainNav from "../../component/MainNav";
 import SpinnerData from "../../component/Spinner";
+import MainFooter from "../../component/Main-Footer";
 
 function EditProduct() {
   let params = useParams();
@@ -158,7 +159,8 @@ function EditProduct() {
                 </Row>
               </Form>
             </Container>
-          </section>
+            </section>
+            <MainFooter />
         </>
       )}
     </main>

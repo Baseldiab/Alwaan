@@ -14,11 +14,12 @@ import MainNav from "../component/MainNav";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCartItem, onChangeQuantity } from "../rtl/slices/Cart-slice";
 import { useState } from "react";
+import MainFooter from "../component/Main-Footer";
 
 export default function Cart() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.cart) || [];
-  console.log(products);
+  // console.log(products);
 
   const totalPrice = products.reduce((acc, product) => {
     acc += product.price * product.quantity;
@@ -169,6 +170,7 @@ export default function Cart() {
           </Col>
         </Row>
       </section>
+      <MainFooter />
     </main>
   );
 }

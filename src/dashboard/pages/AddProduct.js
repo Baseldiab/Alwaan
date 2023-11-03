@@ -11,6 +11,7 @@ import {
   Row,
 } from "react-bootstrap";
 import MainNav from "../../component/MainNav";
+import MainFooter from "../../component/Main-Footer";
 
 function AddNewProduct() {
   let navigate = useNavigate();
@@ -156,6 +157,8 @@ function AddNewProduct() {
           </Form>
         </Container>
       </section>
+
+      <MainFooter />
     </main>
   );
 }

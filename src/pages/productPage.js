@@ -4,6 +4,7 @@ function ProductsPage() {
   return (
     <main>
       <Products />
+      
     </main>
   );
 }

@@ -14,7 +14,7 @@ export const ContextProvider = ({ children }) => {
   };
 
   const [isAdmin, setAdmin] = useState(adminInitial());
-  const [user, setUser] = useState([userNameInitial()]);
+  const [user, setUser] = useState(userNameInitial());
 
   const checkAdmin = (name) => {
     if (name === "johnd") {
@@ -36,7 +36,7 @@ export const ContextProvider = ({ children }) => {
     setAdmin(false);
     localStorage.removeItem("user");
     localStorage.removeItem("admin");
-    console.log(user);
+    // console.log(user);
   };
 
   return (

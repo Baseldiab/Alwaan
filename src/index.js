@@ -22,6 +22,9 @@ import Login from "./pages/LoginPage";
 import { ContextProvider } from "./Auth";
 import RequireAuth from "./Require-Auth";
 import RequireAdminAuth from "./Require-AdminAuth";
+import Contact from "./pages/Contact.jsx";
+import AboutUs from "./pages/About.jsx";
+import MainNav from "./component/MainNav.js";
 const Layout = ({ children }) => {
   return (
     <main>
@@ -56,6 +59,24 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <Cart />
+      </Layout>
+    ),
+  },
+  {
+    path: "/contact",
+    element: (
+      <Layout>
+        <MainNav />
+        <Contact />
+      </Layout>
+    ),
+  },
+  {
+    path: "/about",
+    element: (
+      <Layout>
+        <MainNav />
+        <AboutUs />
       </Layout>
     ),
   },

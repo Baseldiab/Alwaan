@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../rtl/slices/product-slice";
 import MainNav from "../../component/MainNav";
 import SpinnerData from "../../component/Spinner";
+import MainFooter from "../../component/Main-Footer";
 
 function Dashboard() {
   const products = useSelector((state) => state.products.products) || [];
@@ -121,6 +122,8 @@ function Dashboard() {
               </Table>
             </div>
           </section>
+
+          <MainFooter />
         </main>
       )}
     </>
