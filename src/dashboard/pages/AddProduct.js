@@ -23,7 +23,7 @@ function AddNewProduct() {
   const [image, setImage] = useState([]);
 
   const getCategory = () => {
-    fetch("http://localhost:3000/categories")
+    fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data));
   };
@@ -34,7 +34,7 @@ function AddNewProduct() {
   const formatSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/products", {
+      .post("https://fakestoreapi.com/products", {
         title,
         price,
         description,

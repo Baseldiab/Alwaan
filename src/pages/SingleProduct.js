@@ -40,7 +40,7 @@ function SingleProduct() {
   const [singleProduct, setSingleProduct] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:3000/products/${filterParams}`)
+    fetch(`https://fakestoreapi.com/products/${filterParams}`)
       .then((res) => res.json())
       .then((data) => setSingleProduct(data));
   }, [filterParams]);

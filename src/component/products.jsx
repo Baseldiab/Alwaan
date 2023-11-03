@@ -14,6 +14,7 @@ import {
 import SpinnerData from "./Spinner";
 import MainNav from "./MainNav";
 import MainFooter from "./Main-Footer";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 function Products() {
   const products = useSelector((state) => state.products.products) || [];
@@ -23,9 +24,10 @@ function Products() {
   const [categories, setCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const [offset, setOffset] = useState(6);
 
   const getCategory = () => {
-    fetch("http://localhost:3000/categories")
+    fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
       .then((data) => setCategory(data));
   };
@@ -48,6 +50,10 @@ function Products() {
     e.preventDefault();
     setSearchQuery(e.target.value);
     dispatch(searchProducts(e.target.value));
+  };
+
+  const fetchMoreData = () => {
+    setOffset((prevOffset) => prevOffset + 5);
   };
 
   return (
@@ -132,20 +138,29 @@ function Products() {
                   </h5>
                 </div>
 
-                <Row xs={1} sm={2} lg={3} className="g-4 my-2">
-                  {products.map((product) => (
-                    <Col key={product.id}>
-                      <CardProduct
-                        id={product.id}
-                        image={product.image}
-                        title={product.title}
-                        category={product.category}
-                        price={product.price}
-                        description={product.description}
-                      />
-                    </Col>
-                  ))}
-                </Row>
+                <InfiniteScroll
+                  dataLength={offset}
+                  next={fetchMoreData}
+                  hasMore={offset < products.length}
+                  className="overflow-x-hidden"
+                >
+                  <Row xs={1} sm={2} lg={3} className="g-4 my-2">
+                    {products.slice(0, offset).map((product) => {
+                      return (
+                        <Col key={product.id}>
+                          <CardProduct
+                            id={product.id}
+                            image={product.image}
+                            title={product.title}
+                            category={product.category}
+                            price={product.price}
+                            description={product.description}
+                          />
+                        </Col>
+                      );
+                    })}
+                  </Row>
+                </InfiniteScroll>
               </Col>
             </Row>
           </Container>

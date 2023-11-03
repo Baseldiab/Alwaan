@@ -21,7 +21,7 @@ function EditProduct() {
   useEffect(() => {
     setIsLoading(true);
 
-    fetch(`http://localhost:3000/products/${params.productId}`)
+    fetch(`https://fakestoreapi.com/products/${params.productId}`)
       .then((res) => res.json())
       .then((data) => {
         setSingleProduct(data);
@@ -36,7 +36,7 @@ function EditProduct() {
   const formatSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:3000/products/${params.productId}`, {
+      .put(`https://fakestoreapi.com/products/${params.productId}`, {
         title: title || singleProduct.title,
         price: price || singleProduct.price,
         description: description || singleProduct.description,
@@ -159,8 +159,8 @@ function EditProduct() {
                 </Row>
               </Form>
             </Container>
-            </section>
-            <MainFooter />
+          </section>
+          <MainFooter />
         </>
       )}
     </main>

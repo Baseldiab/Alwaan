@@ -38,6 +38,25 @@ export default function Carousal() {
       index: 2,
     },
   ];
+
+  const figures = [
+    {
+      index: 0,
+      src: "images/elementor1-accessories.jpg",
+      button: "ACCESSORIES",
+    },
+    {
+      index: 1,
+      src: "images/elementor-MEN.jpg",
+      button: "Men",
+    },
+    {
+      index: 2,
+      src: "images/elementor-WOMEN.jpg",
+      button: "women",
+    },
+  ];
+
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
   useEffect(() => {
@@ -90,68 +109,35 @@ export default function Carousal() {
       <section className="elementor-section mx-auto my-4">
         <Container>
           <Row>
-            <Col
-              className="elementor__item overflow-hidden"
-              md={4}
-              sm={12}
-              xm={12}
-            >
-              <Figure className="elementor__figure position-relative m-0 w-100">
-                <Figure.Image
-                  alt="accessories image"
-                  src={"images/elementor1-accessories.jpg"}
-                  className="elementor__img m-0 w-100"
-                />
-                <Figure.Caption>
-                  <Link to="/products">
-                    <Button
-                      variant="outline-primary"
-                      className="elementor__btn  rounded-0"
-                    >
-                      ACCESSORIES
-                    </Button>
-                  </Link>
-                </Figure.Caption>
-              </Figure>
-            </Col>
-            <Col className="elementor__item" md={4} sm={12} xm={12}>
-              <Figure className="elementor__figure position-relative m-0 w-100">
-                <Figure.Image
-                  alt="accessories image"
-                  src={"images/elementor-MEN.jpg"}
-                  className="elementor__img m-0 w-100"
-                />
-                <Figure.Caption>
-                  <Link to="/products">
-                    <Button
-                      variant="outline-primary"
-                      className="elementor__btn  rounded-0"
-                    >
-                      ACCESSORIES
-                    </Button>
-                  </Link>
-                </Figure.Caption>
-              </Figure>
-            </Col>
-            <Col className="elementor__item" md={4} sm={12} xm={12}>
-              <Figure className="elementor__figure position-relative m-0 w-100">
-                <Figure.Image
-                  alt="accessories image"
-                  src={"images/elementor-WOMEN.jpg"}
-                  className="elementor__img m-0 w-100"
-                />
-                <Figure.Caption>
-                  <Link to="/products">
-                    <Button
-                      variant="outline-primary"
-                      className="elementor__btn  rounded-0"
-                    >
-                      ACCESSORIES
-                    </Button>
-                  </Link>
-                </Figure.Caption>
-              </Figure>
-            </Col>
+            {figures.map((item) => {
+              return (
+                <Col
+                  key={item.index}
+                  className="elementor__item overflow-hidden"
+                  md={4}
+                  sm={12}
+                  xm={12}
+                >
+                  <Figure className="elementor__figure position-relative m-0 w-100">
+                    <Figure.Image
+                      alt="accessories image"
+                      src={item.src}
+                      className="elementor__img m-0 w-100"
+                    />
+                    <Figure.Caption>
+                      <Link to="/products">
+                        <Button
+                          variant="outline-primary"
+                          className="elementor__btn  rounded-0 text-uppercase"
+                        >
+                          {item.button}
+                        </Button>
+                      </Link>
+                    </Figure.Caption>
+                  </Figure>
+                </Col>
+              );
+            })}
           </Row>
         </Container>
       </section>

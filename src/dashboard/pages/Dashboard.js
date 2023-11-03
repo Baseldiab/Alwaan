@@ -20,7 +20,7 @@ function Dashboard() {
   }, [dispatch]);
 
   const deleteProduct = (productId) => {
-    fetch(`http://localhost:3000/products/${productId}`, {
+    fetch(`https://fakestoreapi.com/products/${productId}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

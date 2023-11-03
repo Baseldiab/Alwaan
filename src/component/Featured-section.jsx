@@ -15,7 +15,7 @@ function Featured() {
 
   const [categories, setCategory] = useState([]);
   const getCategory = () => {
-    fetch("http://localhost:3000/categories")
+    fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
       .then((data) => setCategory(data));
   };

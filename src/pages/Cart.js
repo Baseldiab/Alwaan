@@ -44,7 +44,7 @@ export default function Cart() {
         </Container>
       </section>
 
-      <section className="products table-section my-4">
+      <section className="products table-section my-5">
         <Row className="cart__cards">
           <Col xs={12} xl={9}>
             <Table striped className="products__table my-2">
