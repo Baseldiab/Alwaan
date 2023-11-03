@@ -74,7 +74,7 @@
 
 1. Typechecking component props With PropTypes package.
 
-1. Compression images using [Squoosh](https://squoosh.app/) tool.
+1. Compression images using [photopea](https://www.photopea.com/) tool.
 
 1. Test the performance of the webpage after deploy by using [GTmetrix](https://gtmetrix.com/).
 
