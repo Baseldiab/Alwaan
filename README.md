@@ -1,62 +1,54 @@
-<h1 align="center" >Movflix &mdash; React App</h1>
-
-<!-- <a href="https://amrsaadabdallah.github.io/movflix-react-app" target="_blank">
-<img src="./info/movflix.jpg" alt="movflix Project viewport Image" width="100%">
-</a> -->
+<h1 align="center" >Wolmart store &mdash; React App</h1>
 
 ### 👁️ Project Preview:
 
-<!--
-- [ Live Preview 👉 https://amrsaadabdallah.github.io/movflix-react-app](https://amrsaadabdallah.github.io/movflix-react-app)
+- [ Live Preview 👉 https://wolmart-store.netlify.app/](https://wolmart-store.netlify.app/)
 
-- [ Github Repo 👉 https://github.com/amrsaadabdallah/my-movflix-react-app](https://github.com/amrsaadabdallah/my-movflix-react-app)
-  - 🚩 It's a private repo <a target="_blank" href="mailto:amrsaadabdallah@gmail.com">contact me </a>to see.
-
---- -->
+- [ Github Repo 👉 https://github.com/Baseldiab/Wolmart#%EF%B8%8F-project-preview](https://github.com/Baseldiab/Wolmart#%EF%B8%8F-project-preview)
 
 ### 📝 Project Description & features:
 
-<!--
-- It's a react app (movflix) used to practice react feature and redux.
+- It's a react app (wolmart store) used to practice react feature and redux.
 
-- It consists of 4 pages (home, about, movie-details).
+- It consists of 10 pages (home,contact , about, products, wish , cart, dashboard, add new product , edit product).
 
-- I use [TMDB API](https://www.themoviedb.org/) to fetch movies & TV series data.
+- I use [fake API](https://fakestoreapi.com/docs) to fetch products data.
 
-- You can filter movies depend on multiple categories (Top Rating, now playing, popular, upcoming).
-
-- Also can determine genre of movies data depend on multiple categories ( Action, Adventure, Animation, Comedy, Crime, Documentary, Drama, Family, Fantasy, History, Horror, Music, Myster,y Romance, Science, Fiction, TV Movie, Thriller, War, Western ).
-
-- For movies Categories [now playing or upcoming] can filter depend on a certain country.
-
-  - [First API URL](`https://api.themoviedb.org/3/movie/${category}?api_key=${APIKey}&language=en-US&with_genres=${genre}&page=${page}&region=''`) (`https://api.themoviedb.org/3/movie/${category}?api_key=${APIKey}&language=en-US&with_genres=${genre}&page=${page}&region=''`) => used to fetch movies Categories [Top Rating or Most Popular].
-
-  - [Secound API URL](`https://api.themoviedb.org/3/movie/${category}?api_key=${APIKey}&language=en-US&with_genres=${genre}&page=${page}&region=${country}`) (`https://api.themoviedb.org/3/movie/${category}?api_key=${APIKey}&language=en-US&with_genres=${genre}&page=${page}&region=${country}`)
-    => used to fetch movies Categories [now playing or upcoming]. -->
+- You can filter products depend on multiple categories (electronics, jewellery, men's clothing, women's clothing) and search .
 
 ---
 
+- [First API URL](`https://fakestoreapi.com/products`) (`https://fakestoreapi.com/products`) => used to fetch all products.
+
+- [Second API URL](`https://fakestoreapi.com/products/categories`) (`https://fakestoreapi.com/products/categories`)
+  => used to fetch products Categories .
+
+- [Third API URL](`https://fakestoreapi.com/products/${productId}`) (`https://fakestoreapi.com/products/${productId}`)
+  => used to fetch single product by id .
+
 ### 🛠️ Project Tools:
 
-<!-- 1. Used Google Fonts.
+1. Used Google Fonts.
 
 1. Bootstrap Classes for styling.
 
-1. react-icons pack for getting icons.
+1. react-icons and fontawesome pack for getting icons.
 
 1. ReactJS Library.
 
 1. react-router-dom pack for handling Client side routing.
 
+1. redux-toolkit and Context API enable to manage the state of my website.
+
 1. Axios is a stand-alone third party package that used for making HTTP requests to APIs.
 
-1. [TMDB API](https://www.themoviedb.org/) to fetch movies & TV series data.
+1. [fake API](https://fakestoreapi.com/docs) to fetch products data.
 
 1. PropTypes package for typechecking component props.
 
-1. [Squoosh](https://squoosh.app/) is an online tool for image compression web app that reduces image sizes through numerous formats.
+1. [photopea](https://www.photopea.com/) is an online tool for image compression web app that reduces image sizes through numerous formats.
 
-1. [GTmetrix](https://gtmetrix.com/) is an online tool for customers to easily test the performance of their webpages. -->
+1. [GTmetrix](https://gtmetrix.com/) is an online tool for customers to easily test the performance of their webpages.
 
 ---
 
@@ -74,7 +66,7 @@
 
 1. Deal with redux library.
 
-1. Fetching Dtat from APIs.
+1. Fetching Data from APIs.
 
 1. Use React Hook (UseState, useEffect).
 
@@ -88,28 +80,16 @@
 
 ---
 
-### 🧪 Project performance test:
-
-<!-- Test the performance of the webpage after deploy by using [GTmetrix](https://gtmetrix.com/).
-
-![Project Performane result](./info/movflix-performance.jpg)
-
---- -->
-
 ### 👋 Get In Touch:
 
-<!-- - [🌐 Website 👉 https://amrsaadabdallah.github.io](https://amrsaadabdallah.github.io)
-- [👔 LinkedIn 👉 https://www.linkedin.com/in/amrsaadabdallah](https://www.linkedin.com/in/amrsaadabdallah)
-- [🌟 Github 👉 https://github.com/amrsaadabdallah](https://github.com/amrsaadabdallah)
-- [📧 Gmail 👉 amrsaadabdallah@gmail.com](mailto:amrsaadabdallah@gmail.com)
-- [🐤 Twitter 👉 https://twitter.com/amrsaadabdallah](https://twitter.com/amrsaadabdallah)
-- [:phone: Whatsapp 👉 (+20) 109-775-6067](https://api.whatsapp.com/send/?phone=%2B2001097756067&text&type=phone_number&app_absent=0) -->
+- [👔 LinkedIn 👉 https://www.linkedin.com/in/basel-diab-94b526259/](https://www.linkedin.com/in/basel-diab-94b526259/)
+- [🌟 Github 👉 https://github.com/Baseldiab](https://github.com/Baseldiab)
+- [📧 Gmail 👉 baseldiab21@gmail.com](mailto:baseldiab21@gmail.com)
 
 ---
 
 <div align="center">
-<a target="_blank" href="https://amrsaadabdallah.github.io">
-<img  src="./info/asa-logo.svg" alt="asa logo" width="80px">
-<p style="margin-bottom:0"> 2022 &copy; Amr Saad Abdallah </p>
+<a target="_blank" href="https://github.com/Baseldiab">
+<p style="margin-bottom:0"> 2022 &copy; Basel Diab </p>
 </a>
 </div>
