@@ -9,8 +9,14 @@
 ### 📝 Project Description & features:
 
 - It's a react app (wolmart store) used to practice react feature and redux.
+  
+- A responsive e-commerce website adapts seamlessly to different devices and screen sizes, providing an optimal shopping experience for all users.
 
-- It consists of 10 pages (home,contact , about, products, wish , cart, dashboard, add new product , edit product).
+- It consists of 11 pages (home,contact , about, products, wish , cart , user login and admin login , dashboard, add new product , edit product).
+
+- User login provides secure access to personalized features, data, and account settings, enhancing user experience and ensuring privacy.
+
+- Admin capabilities like adding new products, deleting items, and editing existing products are essential for maintaining an up-to-date website, ensuring content accuracy, and enhancing user experience.
 
 - I use [fake API](https://fakestoreapi.com/docs) to fetch products data.
 
