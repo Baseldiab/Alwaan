@@ -2,7 +2,7 @@
 
 ### 👁️ Project Preview:
 
-- [ Live Preview 👉 https://wolmart-store.netlify.app/](https://wolmart-store.netlify.app/)
+- [ Live Preview 👉https://wolmart-dusky.vercel.app/](https://wolmart-dusky.vercel.app/)
 
 - [ Github Repo 👉 https://github.com/Baseldiab/Wolmart#%EF%B8%8F-project-preview](https://github.com/Baseldiab/Wolmart#%EF%B8%8F-project-preview)
 
