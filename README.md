@@ -1,8 +1,12 @@
 <h1 align="center" >Wolmart store &mdash; React App</h1>
 
+<a href="https://wolmart-dusky.vercel.app/" target="_blank">
+<img src="./public/fullPage-wolmart.png" alt="wolmart Project viewport Image" width="100%">
+</a>
+
 ### 👁️ Project Preview:
 
-- [ Live Preview 👉 https://wolmart-store.netlify.app/](https://wolmart-store.netlify.app/)
+- [ Live Preview 👉 https://wolmart-store.netlify.app/](https://wolmart-dusky.vercel.app/)
 
 - [ Github Repo 👉 https://github.com/Baseldiab/Wolmart#%EF%B8%8F-project-preview](https://github.com/Baseldiab/Wolmart#%EF%B8%8F-project-preview)
 
