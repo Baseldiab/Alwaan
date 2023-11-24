@@ -6,15 +6,25 @@
 
 ### 👁️ Project Preview:
 
+<<<<<<< HEAD
 - [ Live Preview 👉 https://wolmart-store.netlify.app/](https://wolmart-dusky.vercel.app/)
+=======
+- [ Live Preview 👉https://wolmart-dusky.vercel.app/](https://wolmart-dusky.vercel.app/)
+>>>>>>> 54953d95af789af615e79b822ffdfec6e558ca1c
 
 - [ Github Repo 👉 https://github.com/Baseldiab/Wolmart#%EF%B8%8F-project-preview](https://github.com/Baseldiab/Wolmart#%EF%B8%8F-project-preview)
 
 ### 📝 Project Description & features:
 
 - It's a react app (wolmart store) used to practice react feature and redux.
+  
+- A responsive e-commerce website adapts seamlessly to different devices and screen sizes, providing an optimal shopping experience for all users.
 
-- It consists of 10 pages (home,contact , about, products, wish , cart, dashboard, add new product , edit product).
+- It consists of 11 pages (home,contact , about, products, wish , cart , user login and admin login , dashboard, add new product , edit product).
+
+- User login provides secure access to personalized features, data, and account settings, enhancing user experience and ensuring privacy.
+
+- Admin capabilities like adding new products, deleting items, and editing existing products are essential for maintaining an up-to-date website, ensuring content accuracy, and enhancing user experience.
 
 - I use [fake API](https://fakestoreapi.com/docs) to fetch products data.
 
@@ -78,7 +88,7 @@
 
 1. Typechecking component props With PropTypes package.
 
-1. Compression images using [Squoosh](https://squoosh.app/) tool.
+1. Compression images using [photopea](https://www.photopea.com/) tool.
 
 1. Test the performance of the webpage after deploy by using [GTmetrix](https://gtmetrix.com/).
 
@@ -94,6 +104,6 @@
 
 <div align="center">
 <a target="_blank" href="https://github.com/Baseldiab">
-<p style="margin-bottom:0"> 2022 &copy; Basel Diab </p>
+<p style="margin-bottom:0"> 2023 &copy; Basel Diab </p>
 </a>
 </div>
