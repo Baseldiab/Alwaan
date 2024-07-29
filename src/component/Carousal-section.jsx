@@ -70,7 +70,7 @@ export default function Carousal() {
   }, [captions.length]);
 
   const fadeUpTransitions = useTransition(captions[currentSlideIndex], {
-    from: { opacity: 0, transform: "translateY(200px)" },
+    from: { opacity: 0, transform: "translateY(200px)"},
     enter: { opacity: 1, transform: "translateY(0)" },
     config: { duration: 1000 },
   });
@@ -93,7 +93,7 @@ export default function Carousal() {
                 />
                 <Carousel.Caption className="slide-content">
                   {fadeUpTransitions((styles, item) => (
-                    <animated.div style={styles} className="slide-content">
+                    <animated.div style={styles} className="slide-">
                       <h2 className="slide-text text-uppercase">{item.text}</h2>
                       <h2 className="slide-head">{item.head}</h2>
                       <MainButton variant="primary" />
