@@ -1,6 +1,5 @@
 import {
   Button,
-  Carousel,
   Col,
   Container,
   Figure,
@@ -13,6 +12,12 @@ import { animated, useTransition } from "react-spring";
 import { useState } from "react";
 import { useEffect } from "react";
 import MainButton from "./Main-button";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { EffectFade, Navigation, Autoplay } from "swiper/modules";
 
 export default function Carousal() {
   const fullYear = new Date().getFullYear();
@@ -70,40 +75,83 @@ export default function Carousal() {
   }, [captions.length]);
 
   const fadeUpTransitions = useTransition(captions[currentSlideIndex], {
-    from: { opacity: 0, transform: "translateY(200px)"},
+    from: { opacity: 0, transform: "translateY(170px)"},
     enter: { opacity: 1, transform: "translateY(0)" },
     config: { duration: 1000 },
-  });
+  }); 
   return (
     <>
       <section className="carousel-section mx-auto">
-        <Carousel
-          className="text-center"
-          activeIndex={currentSlideIndex}
-          onSelect={(index) => setCurrentSlideIndex(index)}
-        >
-          {captions.map((caption) => {
-            return (
-              <Carousel.Item key={caption.index}>
-                <Image
+       
+        <Swiper
+        spaceBetween={30}
+        effect={"fade"}
+          // loop={true}
+          speed={600}
+          parallax={true}
+        centeredSlides={true}
+        navigation={{
+          nextEl: ".button-next",
+          prevEl: ".button-prev",
+        }}
+        // autoplay={{
+        //   delay: 3000,
+        //   disableOnInteraction: false,
+        // }}
+        modules={[EffectFade, Autoplay, Navigation]}
+        className="mySwiper container position-relative"
+        onSlideChange={(swiper) => setCurrentSlideIndex(swiper.activeIndex)}
+      >
+        {captions.map((caption) => {
+          return (
+            <SwiperSlide
+             key={caption.index}
+              className="swiper__slide relative"
+            >
+            <Image
                   text="First slide"
                   src={caption.imagePath}
                   alt={`Slide ${caption.index}`}
-                  className="carousel__img slide-image"
-                />
-                <Carousel.Caption className="slide-content">
-                  {fadeUpTransitions((styles, item) => (
-                    <animated.div style={styles} className="slide-">
+                  className="carousel__img slide-image "
+              />
+              {fadeUpTransitions((styles, item) => (
+                    <animated.div style={styles} className="ps-4 swiper__text">
+                      <h2  data-swiper-parallax="-300" className="title slide-text text-uppercase text-white">{item.text}</h2>
+                      <h2 ata-swiper-parallax="-200" className="slide-head text-white subtitle">{item.head}</h2>
+                      <div className="text" data-swiper-parallax="-100">
+                      <MainButton variant="primary" />
+           
+          </div>
+                    </animated.div>
+                  ))}
+             
+          
+                     
+         
+         
+
+              {/* {fadeUpTransitions((styles, item) => (
+                    <animated.div style={styles} className="swiper__text">
                       <h2 className="slide-text text-uppercase">{item.text}</h2>
                       <h2 className="slide-head">{item.head}</h2>
                       <MainButton variant="primary" />
                     </animated.div>
-                  ))}
-                </Carousel.Caption>
-              </Carousel.Item>
-            );
-          })}
-        </Carousel>
+                  ))} */}
+            </SwiperSlide>
+          );
+        })}
+
+        {/* <div className="max-sm:hidden absolute top-1/2 left-1 transform -translate-y-1/2 z-40">
+          <Button title="go back" className="button-prev !h-8 !min-w-8 !W-8 !p-0 !rounded-full">
+            <SlArrowLeft className="text-xl text-black" />
+          </Button>
+        </div>
+        <div className="max-sm:hidden absolute top-1/2 right-1 transform -translate-y-1/2 z-40">
+          <Button title="go forward" className="button-next !rounded-full !h-8 !min-w-8 !W-8 !p-0">
+            <SlArrowRight className="text-xl text-black" />
+          </Button>
+        </div> */}
+      </Swiper>
       </section>
 
       <section className="elementor-section mx-auto my-4">
