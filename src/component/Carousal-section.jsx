@@ -77,44 +77,44 @@ export default function Carousal() {
   const fadeUpTransitions = useTransition(captions[currentSlideIndex], {
     from: { opacity: 0, transform: "translateY(170px)"},
     enter: { opacity: 1, transform: "translateY(0)" },
-    config: { duration: 1000 },
+    config: { duration: 1500 },
   }); 
   return (
     <>
       <section className="carousel-section mx-auto">
        
         <Swiper
-        spaceBetween={30}
-        effect={"fade"}
-          // loop={true}
-          speed={600}
+        // spaceBetween={"auto"}
+        // effect={"fade"}
+          speed={700}
           parallax={true}
-        centeredSlides={true}
-        navigation={{
-          nextEl: ".button-next",
-          prevEl: ".button-prev",
-        }}
-        // autoplay={{
-        //   delay: 3000,
-        //   disableOnInteraction: false,
+          centeredSlides={true}
+          navigation={true}
+        // navigation={{
+        //   nextEl: ".button-next",
+        //   prevEl: ".button-prev",
         // }}
+        autoplay={{
+          delay: 3500,
+          // disableOnInteraction: false,
+        }}
         modules={[EffectFade, Autoplay, Navigation]}
-        className="mySwiper container position-relative"
+        className="mySwiper container position-relative overflow-hidden"
         onSlideChange={(swiper) => setCurrentSlideIndex(swiper.activeIndex)}
       >
-        {captions.map((caption) => {
+        {captions.map((caption, index) => {
           return (
             <SwiperSlide
              key={caption.index}
-              className="swiper__slide relative"
+              className="swiper__slide m-auto text-center"
             >
             <Image
                   text="First slide"
-                  src={caption.imagePath}
-                  alt={`Slide ${caption.index}`}
-                  className="carousel__img slide-image "
+                  src={captions[currentSlideIndex].imagePath}
+                  alt={`Slide ${captions[currentSlideIndex].index}`}
+                  className=" slide-image"
               />
-              {fadeUpTransitions((styles, item) => (
+              {   fadeUpTransitions((styles, item) => (
                     <animated.div style={styles} className="ps-4 swiper__text">
                       <h2  data-swiper-parallax="-300" className="title slide-text text-uppercase text-white">{item.text}</h2>
                       <h2 ata-swiper-parallax="-200" className="slide-head text-white subtitle">{item.head}</h2>
@@ -126,31 +126,11 @@ export default function Carousal() {
                   ))}
              
           
-                     
-         
-         
 
-              {/* {fadeUpTransitions((styles, item) => (
-                    <animated.div style={styles} className="swiper__text">
-                      <h2 className="slide-text text-uppercase">{item.text}</h2>
-                      <h2 className="slide-head">{item.head}</h2>
-                      <MainButton variant="primary" />
-                    </animated.div>
-                  ))} */}
             </SwiperSlide>
           );
         })}
 
-        {/* <div className="max-sm:hidden absolute top-1/2 left-1 transform -translate-y-1/2 z-40">
-          <Button title="go back" className="button-prev !h-8 !min-w-8 !W-8 !p-0 !rounded-full">
-            <SlArrowLeft className="text-xl text-black" />
-          </Button>
-        </div>
-        <div className="max-sm:hidden absolute top-1/2 right-1 transform -translate-y-1/2 z-40">
-          <Button title="go forward" className="button-next !rounded-full !h-8 !min-w-8 !W-8 !p-0">
-            <SlArrowRight className="text-xl text-black" />
-          </Button>
-        </div> */}
       </Swiper>
       </section>
 
